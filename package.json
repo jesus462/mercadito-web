@@ -1,7 +1,7 @@
 {
-	"name": "crm-wayra",
+	"name": "mercadito-web",
 	"version": "1.0.1",
-	"description": "Basic CRM",
+	"description": "e-commerce",
 	"main": "index.js",
 	"scripts": {
 		"c9": "webpack-dev-server --config webpack.dev.js --host $IP --port $PORT",
@@ -11,17 +11,18 @@
 		"deploy": "node deploy-to-github.js"
 	},
 	"author": {
-		"name": "Jonathan",
-		"url": "http://alesanchezr.com/"
+		"name": "Jesus",
+		"url": "https://github.com/jesus462"
 	},
 	"contributors": [
 		{
-			"name": "Ivan",
-			"url": "http://alesanchezr.com/"
+			"name": "Daniel Rubial"
 		},
 		{
-			"name": "Jesus Ponce",
-			"url": "https://github.com/jesus462"
+			"name": "Ana Elisa"
+		},
+        {
+			"name": "Francisco Rubial"
 		}
 	],
 	"license": "ISC",
