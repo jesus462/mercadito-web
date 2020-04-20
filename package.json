@@ -21,7 +21,7 @@
 		{
 			"name": "Ana Elisa"
 		},
-        {
+		{
 			"name": "Francisco Rubial"
 		}
 	],
@@ -71,6 +71,8 @@
 	},
 	"dependencies": {
 		"bootstrap": "^4.3.1",
+		"jquery": "^3.5.0",
+		"popper.js": "^1.16.1",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
 		"react-dom": "^16.8.4",
