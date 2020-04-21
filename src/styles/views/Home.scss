@@ -1,0 +1,65 @@
+.container-logo{
+    display: flex;
+    justify-content: center;
+
+    .logo {
+        height: 120px;
+        width: 250px;
+        padding: 20px 0;
+    }
+}
+
+.container-main{
+    background-color: #0E0A56;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 30px;
+
+    h1{
+        color:#FFFFFF;
+        font-size: 80px;
+        text-align: center;
+    }
+    .header-words{
+        color:#FFFFFF;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    main{
+        display: flex;
+        justify-content: space-around;
+
+        .container-img {
+            width: 30%;
+            background-color: #CECBFF;
+            border-radius: 20px;
+            position: relative;
+            margin: 0 auto;
+                
+            .steps-image{
+                width: 100%;
+                border-radius: 20px;
+                margin: 0 auto;
+            }
+            p {
+                font-size: 20px;
+                color: #151517;
+                text-align: center;
+            }
+        }
+    }
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+
+    .button-start{
+        background-color: #F7020F;
+        width: 200px;
+        height: 40px;
+        font-size: 20px;
+        margin: 20px 0px;
+    }
+}
