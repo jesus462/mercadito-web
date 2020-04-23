@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 
-import logo from "../../img/logo.jpg";
+import logo from "../../img/logo.png";
 import carritoDeCompras from "../../img/carrito-de-compras.jpg";
 import bodegon from "../../img/bodegon.jpg";
 import factura from "../../img/factura.png";
