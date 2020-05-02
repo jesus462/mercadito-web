@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import logo from "../../img/logo.png";
 import carritoDeCompras from "../../img/carrito-de-compras.jpg";
@@ -36,8 +37,10 @@ export const Home = () => (
 			</main>
 
 			<footer>
-				<Button variant="danger" className="button-start">
-					EMPEZAR AHORA
+				<Button variant="danger" className="button-start" to="/Main">
+					<Link className="button-inside" to="/Main">
+						EMPEZAR AHORA
+					</Link>
 				</Button>
 			</footer>
 		</div>
