@@ -3,6 +3,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./views/Home";
 import { Main } from "./views/Main";
+import { BeveragesItems } from "./views/BeveragesItems";
+import { FoodItems } from "./views/FoodItems";
+import { HygieneItems } from "./views/HygieneItems";
+import { InDemandItems } from "./views/InDemandItems";
+import { SnacksItems } from "./views/SnacksItems";
+import { CleaningItems } from "./views/CleaningItems";
 import injectContext from "./store/Context";
 
 //create your first component
@@ -17,6 +23,12 @@ export const Layout = () => {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/Main" component={Main} />
+					<Route exact path="/Main/Populares" component={InDemandItems} />
+					<Route exact path="/Main/Snacks" component={SnacksItems} />
+					<Route exact path="/Main/Alimentos" component={FoodItems} />
+					<Route exact path="/Main/Bebidas" component={BeveragesItems} />
+					<Route exact path="/Main/Limpieza" component={CleaningItems} />
+					<Route exact path="/Main/Higiene" component={HygieneItems} />
 					<Route render={() => <h1>Not found!</h1>} />
 				</Switch>
 			</BrowserRouter>
