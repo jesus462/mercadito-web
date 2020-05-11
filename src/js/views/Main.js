@@ -15,6 +15,7 @@ export const Main = () => {
 
 	return (
 		<div>
+			<NavBar />
 			<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
 			<div className="card-container">{itemCards}</div>
 		</div>

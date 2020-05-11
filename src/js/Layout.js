@@ -9,7 +9,6 @@ import { HygieneItems } from "./views/HygieneItems";
 import { InDemandItems } from "./views/InDemandItems";
 import { SnacksItems } from "./views/SnacksItems";
 import { CleaningItems } from "./views/CleaningItems";
-import { NavBar } from "./component/NavBar";
 import injectContext from "./store/Context";
 
 //create your first component
@@ -22,7 +21,6 @@ export const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter>
 				<div>
-					<NavBar />
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/Main" component={Main} />
