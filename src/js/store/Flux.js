@@ -1,16 +1,14 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
+			items: [
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
+					name: "Nutella",
+					price: 9
 				},
 				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
+					name: "Nutella",
+					price: 9
 				}
 			]
 		},
