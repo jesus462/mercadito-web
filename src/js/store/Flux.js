@@ -10,7 +10,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					name: "Nutella",
 					price: 9
 				}
-			]
+			],
+
+			cartItems: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
