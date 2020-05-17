@@ -7,8 +7,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					price: 9
 				},
 				{
-					name: "Nutella",
-					price: 9
+					name: "Milk",
+					price: 5
+				},
+				{
+					name: "Food",
+					price: 8
 				}
 			],
 

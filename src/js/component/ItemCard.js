@@ -8,6 +8,12 @@ import holder from "../../img/holder.png";
 import "../../styles/component/ItemCard.scss";
 
 export const ItemCard = ({ item }) => {
+	const { store, actions } = useContext(Context);
+
+	const handleClickCart = e => {
+		store.cartItems.push(item);
+	};
+
 	return (
 		<Card className="full-card">
 			<Card.Img variant="top" src={holder} />
@@ -15,7 +21,7 @@ export const ItemCard = ({ item }) => {
 				<Card.Title>{item.name}</Card.Title>
 				<Card.Subtitle>${item.price}</Card.Subtitle>
 				<Card.Text />
-				<Button variant="danger" className="button-start">
+				<Button variant="danger" className="button-start" onClick={handleClickCart}>
 					AGREGAR AL CARRITO
 				</Button>
 			</Card.Body>
