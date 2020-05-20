@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, InputGroup, FormControl } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 import holder from "../../img/holder.png";
@@ -20,7 +20,17 @@ export const ItemCard = ({ item }) => {
 			<Card.Body>
 				<Card.Title>{item.name}</Card.Title>
 				<Card.Subtitle>${item.price}</Card.Subtitle>
-				<Card.Text />
+				<Card.Text>
+					<InputGroup className="mb-3">
+						<InputGroup.Prepend>
+							<Button variant="outline-secondary">+</Button>
+						</InputGroup.Prepend>
+						<FormControl aria-describedby="basic-addon1" />
+						<InputGroup.Append>
+							<Button variant="outline-secondary">-</Button>
+						</InputGroup.Append>
+					</InputGroup>
+				</Card.Text>
 				<Button variant="danger" className="button-start" onClick={handleClickCart}>
 					AGREGAR AL CARRITO
 				</Button>
