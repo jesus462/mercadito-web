@@ -3,16 +3,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			items: [
 				{
+					code: 122,
 					name: "Nutella",
-					price: 9
+					price: 9,
+					units: 1
 				},
 				{
+					code: 102,
 					name: "Milk",
-					price: 5
+					price: 5,
+					units: 1
 				},
 				{
+					code: 112,
 					name: "Food",
-					price: 8
+					price: 8,
+					units: 1
 				}
 			],
 

@@ -10,29 +10,47 @@ import "../../styles/component/ItemCard.scss";
 export const ItemCard = ({ item }) => {
 	const { store, actions } = useContext(Context);
 
-	const handleClickCart = e => {
+	const [unit, setUnit] = useState(1);
+
+	const handleClickAddCart = e => {
 		store.cartItems.push(item);
 	};
 
 	return (
 		<Card className="full-card">
-			<Card.Img variant="top" src={holder} />
+			<Card.Img variant="top" src={holder} className="card-img" />
 			<Card.Body>
 				<Card.Title>{item.name}</Card.Title>
 				<Card.Subtitle>${item.price}</Card.Subtitle>
-				<Card.Text>
-					<InputGroup className="mb-3">
+				<Card.Text className="full-input">
+					<InputGroup className="mb-3 input-style">
 						<InputGroup.Prepend>
-							<Button variant="outline-secondary">+</Button>
+							<Button
+								variant="outline-secondary"
+								className="input-button"
+								onClick={() => setUnit(unit + 1)}>
+								+
+							</Button>
 						</InputGroup.Prepend>
-						<FormControl aria-describedby="basic-addon1" />
+						<FormControl
+							aria-describedby="basic-addon1"
+							type="number"
+							min="1"
+							className="input-text"
+							value={unit}
+						/>
 						<InputGroup.Append>
-							<Button variant="outline-secondary">-</Button>
+							<Button
+								variant="outline-secondary"
+								className="input-button"
+								onClick={() => (unit >= 2 ? setUnit(unit - 1) : setUnit(unit - 0))}>
+								-
+							</Button>
 						</InputGroup.Append>
 					</InputGroup>
 				</Card.Text>
-				<Button variant="danger" className="button-start" onClick={handleClickCart}>
-					AGREGAR AL CARRITO
+				<Button className="button-start" onClick={handleClickAddCart}>
+					AGREGAR
 				</Button>
 			</Card.Body>
 		</Card>
