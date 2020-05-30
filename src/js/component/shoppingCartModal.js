@@ -16,7 +16,9 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 	let cartItems = store.cartItems.map(cartItem => {
 		return (
 			<tr key={cartItem.id}>
-				<td>{cartItem.name}</td>
+				<td>
+					{cartItem.units} x {cartItem.name}
+				</td>
 				<td>${cartItem.price}</td>
 			</tr>
 		);

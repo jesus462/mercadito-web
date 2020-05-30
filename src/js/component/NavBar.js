@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { ShoppingCartModal } from "./ShoppingCartModal";
 
 import logo from "../../img/logo.png";
-import search from "../../img/search.png";
 import shopping from "../../img/shopping-cart.png";
 
 import "../../styles/component/NavBar.scss";
@@ -46,12 +45,11 @@ export const NavBar = () => {
 					</Link>
 				</Nav>
 			</Navbar.Collapse>
-			<img src={search} className="icon" />
 			<Button variant="light" onClick={handleShow} className="icon-button">
 				<img src={shopping} className="icon-cart" />
 			</Button>
 
-			<ShoppingCartModal /*key={person.id} person={person}*/ show={show} handleClose={handleClose} />
+			<ShoppingCartModal show={show} handleClose={handleClose} />
 		</Navbar>
 	);
 };

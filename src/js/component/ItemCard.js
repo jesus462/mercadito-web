@@ -13,15 +13,16 @@ export const ItemCard = ({ item }) => {
 	const [unit, setUnit] = useState(1);
 
 	const handleClickAddCart = e => {
+		item.units = unit;
 		store.cartItems.push(item);
 	};
 
 	return (
 		<Card className="full-card">
 			<Card.Img variant="top" src={holder} className="card-img" />
-			<Card.Body>
+			<Card.Body className="card-body">
 				<Card.Title>{item.name}</Card.Title>
-				<Card.Subtitle>${item.price}</Card.Subtitle>
+				<Card.Subtitle className="price-section">${item.price}</Card.Subtitle>
 				<Card.Text className="full-input">
 					<InputGroup className="mb-3 input-style">
 						<InputGroup.Prepend>

@@ -9,39 +9,50 @@ input[type=number] {
   }
 
 .full-card{
-    width: 200px;
+    width: 180px;
     margin: 30px 30px;
     text-align: center;
     border-radius: 25px;
     border-color: #707070;
     
-    .full-input{
-        display: flex;
-        justify-content: center;
-
-        .input-style{
-            width: 120px;
-    
-            .input-button{
-                color: #0E0A56;
-                border-color: #0E0A56;
-            }
-            .input-text{
-                color: #0E0A56;
-            }
-        }
-    }
     .card-img{
         padding: 5px 5px 0 5px;
         border-radius: 25px;
-    }   
-    .button-start{
-        width: 90%;
-        background-color: #EAEAEE;
-        font-size: 16px;
-        padding: 6px;
-        color: #0E0A56;
-        margin: 0 auto;
-        border-color: #0E0A56;
     }
+    .card-body{
+        padding: 5px;
+        
+        .price-section{
+            font-weight: bold;
+        }
+        .full-input{
+            display: flex;
+            justify-content: center;
+            margin: 0;
+    
+            .input-style{
+                width: 75%;
+        
+                .input-button{
+                    color: #0E0A56;
+                    border-color: #0E0A56;
+                }
+                .input-text{
+                    color: #0E0A56;
+                    text-align: center;
+                    border-color: #0E0A56;
+                }
+            }
+        }
+        .button-start{
+            width: 75%;
+            background-color: white;
+            font-size: 16px;
+            color: #0E0A56;
+            margin: 0 auto;
+            border-color: #0E0A56;
+            border-width: 2px;
+            margin-bottom: 5px;;
+        }
+    }   
 }
