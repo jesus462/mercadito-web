@@ -6,19 +6,85 @@ const getState = ({ getStore, getActions, setStore }) => {
 					code: 122,
 					name: "Nutella",
 					price: 9,
-					units: 1
+					units: 1,
+					type: "Snacks"
 				},
 				{
 					code: 102,
 					name: "Milk",
 					price: 5,
-					units: 1
+					units: 1,
+					type: "Bebidas"
 				},
 				{
 					code: 112,
 					name: "Food",
 					price: 8,
-					units: 1
+					units: 1,
+					type: "Alimentos"
+				},
+				{
+					code: 100,
+					name: "Ajax",
+					price: 9,
+					units: 1,
+					type: "Limpieza"
+				},
+				{
+					code: 103,
+					name: "Shampoo",
+					price: 5,
+					units: 1,
+					type: "Higiene"
+				},
+				{
+					code: 113,
+					name: "Pringles",
+					price: 8,
+					units: 1,
+					type: "Populares"
+				},
+				{
+					code: 122,
+					name: "Oreo",
+					price: 9,
+					units: 1,
+					type: "Snacks"
+				},
+				{
+					code: 102,
+					name: "Orange Juice",
+					price: 5,
+					units: 1,
+					type: "Bebidas"
+				},
+				{
+					code: 112,
+					name: "Meat",
+					price: 8,
+					units: 1,
+					type: "Alimentos"
+				},
+				{
+					code: 100,
+					name: "Cloro",
+					price: 9,
+					units: 1,
+					type: "Limpieza"
+				},
+				{
+					code: 103,
+					name: "Shampoo",
+					price: 5,
+					units: 1,
+					type: "Higiene"
+				},
+				{
+					code: 113,
+					name: "Lays",
+					price: 8,
+					units: 1,
+					type: "Populares"
 				}
 			],
 

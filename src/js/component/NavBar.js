@@ -18,37 +18,35 @@ export const NavBar = () => {
 	const handleShow = () => setShow(true);
 
 	return (
-		<Navbar className="full-navbar" expand="lg">
+		<Navbar className="full-navbar" expand="sm">
 			<Navbar.Brand>
-				<img src={logo} className="logo" />
+				<Link to="/Main">
+					<img src={logo} className="logo" />
+				</Link>
 			</Navbar.Brand>
-			<Navbar.Toggle aria-controls="basic-navbar-nav" />
-			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav>
-					<Link className="nav-links" to="/Main/Populares">
-						Populares
-					</Link>
-					<Link className="nav-links" to="/Main/Snacks">
-						Snacks
-					</Link>
-					<Link className="nav-links" to="/Main/Alimentos">
-						Alimentos
-					</Link>
-					<Link className="nav-links" to="/Main/Bebidas">
-						Bebidas
-					</Link>
-					<Link className="nav-links" to="/Main/Limpieza">
-						Limpieza
-					</Link>
-					<Link className="nav-links" to="/Main/Higiene">
-						Higiene Personal
-					</Link>
-				</Nav>
+			<Navbar.Collapse className="links-container" id="basic-navbar-nav">
+				<Link className="nav-links" to="/Main/Populares">
+					Populares
+				</Link>
+				<Link className="nav-links" to="/Main/Snacks">
+					Snacks
+				</Link>
+				<Link className="nav-links" to="/Main/Alimentos">
+					Alimentos
+				</Link>
+				<Link className="nav-links" to="/Main/Bebidas">
+					Bebidas
+				</Link>
+				<Link className="nav-links" to="/Main/Limpieza">
+					Limpieza
+				</Link>
+				<Link className="nav-links" to="/Main/Higiene">
+					Higiene Personal
+				</Link>
 			</Navbar.Collapse>
 			<Button variant="light" onClick={handleShow} className="icon-button">
 				<img src={shopping} className="icon-cart" />
 			</Button>
-
 			<ShoppingCartModal show={show} handleClose={handleClose} />
 		</Navbar>
 	);

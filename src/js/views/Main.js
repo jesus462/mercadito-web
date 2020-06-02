@@ -4,6 +4,7 @@ import { Button, InputGroup, FormControl } from "react-bootstrap";
 
 import { NavBar } from "../component/NavBar";
 import { ItemCard } from "../component/ItemCard";
+import { MobileNavbar } from "../component/MobileNavbar";
 
 import searchIcon from "../../img/search.png";
 
@@ -14,39 +15,61 @@ export const Main = () => {
 
 	const [search, setSearch] = useState("");
 
+	const [count, setCount] = useState(0);
+
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
+		setCount(0);
 	};
 
 	let filteredItems = store.items.filter(item => {
 		return item.name.toLowerCase().indexOf(search.toLowerCase()) == !-1;
 	});
 
-	let itemCards = filteredItems.map(item => {
+	let itemCards = filteredItems.slice(count, count + 6).map(item => {
 		return <ItemCard key={item.id} item={item} />;
 	});
 
 	return (
 		<div>
-			<NavBar />
-			<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
-			<div className="search-bar">
-				<InputGroup className="mb-3 search-bar-style">
-					<FormControl
-						value={search}
-						onChange={handleChangeSearch}
-						type="text"
-						aria-describedby="basic-addon1"
-						className="input"
-					/>
-					<InputGroup.Append>
-						<Button variant="light" className="button-search">
-							<img src={searchIcon} className="icon" />
-						</Button>
-					</InputGroup.Append>
-				</InputGroup>
+			<div className="sticky-top">
+				<NavBar />
+				<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
+				<div className="search-bar">
+					<InputGroup className="mb-3 search-bar-style">
+						<FormControl
+							value={search}
+							onChange={handleChangeSearch}
+							type="text"
+							aria-describedby="basic-addon1"
+							className="input"
+						/>
+						<InputGroup.Append>
+							<Button variant="light" className="button-search">
+								<img src={searchIcon} className="icon" />
+							</Button>
+						</InputGroup.Append>
+					</InputGroup>
+				</div>
 			</div>
+			<MobileNavbar />
 			<div className="card-container">{itemCards}</div>
+			<div className="buttons-container">
+				<Button
+					variant="dark"
+					className="buttons"
+					onClick={() => setCount(count - 6)}
+					style={{ display: count < 6 ? "none" : "inline" }}>
+					<i className="fas fa-backward" />
+				</Button>
+				<Button
+					variant="dark"
+					className="buttons"
+					onClick={() => setCount(count + 6)}
+					style={{ display: itemCards.length < 5 || filteredItems.length < count + 7 ? "none" : "inline" }}>
+					<i className="fas fa-forward" />
+				</Button>
+			</div>
 		</div>
 	);
 };

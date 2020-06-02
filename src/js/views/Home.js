@@ -37,11 +37,11 @@ export const Home = () => (
 			</main>
 
 			<footer>
-				<Button variant="danger" className="button-start" to="/Main">
-					<Link className="button-inside" to="/Main">
+				<Link to="/Main">
+					<Button variant="danger" className="button-start">
 						EMPEZAR AHORA
-					</Link>
-				</Button>
+					</Button>
+				</Link>
 			</footer>
 		</div>
 	</div>
