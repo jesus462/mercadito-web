@@ -64,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					code: 110,
-					name: "Shampoo",
+					name: "Acondicionador",
 					price: 5,
 					type: "Higiene"
 				},

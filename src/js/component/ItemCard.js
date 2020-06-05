@@ -20,6 +20,9 @@ export const ItemCard = ({ item }) => {
 			for (let i = 0; i < store.cartItems.length; i++) {
 				if (item.code === store.cartItems[i].code) {
 					store.cartItems[i].units += unit;
+					if (item.code !== store.cartItems[i].code) {
+						store.cartItems.push(item);
+					}
 				}
 			}
 		} else {
@@ -52,7 +55,7 @@ export const ItemCard = ({ item }) => {
 							min="1"
 							className="input-text"
 							value={unit}
-							onChange={e => setUnit(e.target.value)}
+							//onChange={e => setUnit(e.target.value)}
 						/>
 						<InputGroup.Append>
 							<Button
