@@ -12,9 +12,22 @@ export const ItemCard = ({ item }) => {
 
 	const [unit, setUnit] = useState(1);
 
-	const handleClickAddCart = e => {
-		item.units = unit;
-		store.cartItems.push(item);
+	const handleClickAddItem = e => {
+		if (store.cartItems.length < 1) {
+			item.units = unit;
+			store.cartItems.push(item);
+		} else if (item.units) {
+			for (let i = 0; i < store.cartItems.length; i++) {
+				if (item.code === store.cartItems[i].code) {
+					store.cartItems[i].units += unit;
+				}
+			}
+		} else {
+			item.units = unit;
+			store.cartItems.push(item);
+		}
+
+		setUnit(1);
 	};
 
 	return (
@@ -39,6 +52,7 @@ export const ItemCard = ({ item }) => {
 							min="1"
 							className="input-text"
 							value={unit}
+							onChange={e => setUnit(e.target.value)}
 						/>
 						<InputGroup.Append>
 							<Button
@@ -50,7 +64,7 @@ export const ItemCard = ({ item }) => {
 						</InputGroup.Append>
 					</InputGroup>
 				</Card.Text>
-				<Button className="button-start" onClick={handleClickAddCart}>
+				<Button className="button-start" onClick={handleClickAddItem}>
 					AGREGAR
 				</Button>
 			</Card.Body>

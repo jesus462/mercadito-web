@@ -2,14 +2,33 @@
     background-color: #EAEAEE;
 } // this modal-content is a class of the component modal.
 
+.table-style{
+    text-align: right;
+
+    .total-row{
+        font-weight: bold;
+    }
+}
+
 .buttons-footer{
     display: flex;
     justify-content: center;
-    
-    .shopping-button{
+
+    .keep-shopping-button{
         background-color: #0E0A56;
         width: 40%;
-    } 
+    }
+    .billing-button{
+        width: 40%;
+        color: #FFFFFF;
+        text-decoration: none;
+
+        .shopping-button{
+        background-color: #0E0A56;
+        width: 100%;
+        } 
+    }  
+    
 }
 
 .button-flex{

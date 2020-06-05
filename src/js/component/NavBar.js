@@ -51,3 +51,11 @@ export const NavBar = () => {
 		</Navbar>
 	);
 };
+/*
+<Button
+					variant="danger"
+					className="cart-indicator"
+					style={{ display: store.cartItems.length < 1 ? "none" : "inline" }}>
+					0
+				</Button>
+				*/
