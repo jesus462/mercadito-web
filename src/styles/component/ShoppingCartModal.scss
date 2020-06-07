@@ -3,10 +3,11 @@
 } // this modal-content is a class of the component modal.
 
 .table-style{
-    text-align: right;
+    text-align: left;
 
     .total-row{
         font-weight: bold;
+        text-align: right;
     }
 }
 
@@ -17,6 +18,9 @@
     .keep-shopping-button{
         background-color: #0E0A56;
         width: 40%;
+        @media (max-width: 600px) {
+            font-size: 14px; 
+         }
     }
     .billing-button{
         width: 40%;
@@ -26,6 +30,9 @@
         .shopping-button{
         background-color: #0E0A56;
         width: 100%;
+        @media (max-width: 600px) {
+            font-size: 14px; 
+         }
         } 
     }  
     
@@ -37,5 +44,14 @@
 
     .delete-button{
         width: 80%;
+        @media (max-width: 600px) {
+           font-size: 14px; 
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .table-style{
+        font-size: 10px;
     }
 }

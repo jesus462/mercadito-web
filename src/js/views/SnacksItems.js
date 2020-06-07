@@ -48,23 +48,25 @@ export const SnacksItems = () => {
 
 	return (
 		<div>
-			<NavBar cartCounter={cartCounter} />
-			<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
-			<div className="search-bar">
-				<InputGroup className="mb-3 search-bar-style">
-					<FormControl
-						value={search}
-						onChange={handleChangeSearch}
-						type="text"
-						aria-describedby="basic-addon1"
-						className="input"
-					/>
-					<InputGroup.Append>
-						<Button variant="light" className="button-search">
-							<img src={searchIcon} className="icon" />
-						</Button>
-					</InputGroup.Append>
-				</InputGroup>
+			<div className="sticky-top">
+				<NavBar cartCounter={cartCounter} />
+				<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
+				<div className="search-bar">
+					<InputGroup className="mb-3 search-bar-style">
+						<FormControl
+							value={search}
+							onChange={handleChangeSearch}
+							type="text"
+							aria-describedby="basic-addon1"
+							className="input"
+						/>
+						<InputGroup.Append>
+							<Button variant="light" className="button-search">
+								<img src={searchIcon} className="icon" />
+							</Button>
+						</InputGroup.Append>
+					</InputGroup>
+				</div>
 			</div>
 			<MobileNavbar />
 			<div className="card-container">{itemCards}</div>

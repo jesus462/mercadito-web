@@ -101,7 +101,7 @@ export const Billing = () => {
 									<th>Código</th>
 									<th>Descripción</th>
 									<th>Cantidad</th>
-									<th>Total Unid.</th>
+									<th>P.v.p.</th>
 									<th>Subtotal</th>
 								</tr>
 							</thead>
@@ -152,12 +152,17 @@ export const Billing = () => {
 						/>
 					</InputGroup>
 					<Button
+						variant="dark"
 						className="inputs-button"
 						style={{ display: !show ? "none" : "inline" }}
 						onClick={handleClickAdding}>
 						Agregar a factura
 					</Button>
+					<p style={{ display: show ? "none" : "inline" }} className="correction-info">
+						Verifica tus datos si hay algún error presiona el botón corregir
+					</p>
 					<Button
+						variant="dark"
 						className="inputs-button"
 						style={{ display: show ? "none" : "inline" }}
 						onClick={handleClickCorrection}>

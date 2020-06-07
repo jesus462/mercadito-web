@@ -40,10 +40,9 @@ input[type=number] {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0;
 
     .billing-container{
-        border: 1px solid #707070;
-        border-radius: 30px;
         width: 90%;
         margin: 15px 0;
 
@@ -78,14 +77,20 @@ input[type=number] {
             width: 90%;
 
             .input-text{
-                border-top-left-radius: 15px;
-                border-bottom-left-radius: 15px;
+                border-radius: 20px;
                 box-shadow: none;
                 border-color: #707070;
             }
         }
         .inputs-button{
             background-color: #0E0A56;
+            border-color: #0E0A56;
+        }
+        .correction-info{
+            color: #0E0A56;
+            margin: 0;
+            text-align: center;
+            padding: 5px 0;
         }
     }
 }
@@ -99,6 +104,9 @@ input[type=number] {
         width: 75%;
         display: flex;
         justify-content: flex-end;
+        @media (max-width: 680px){
+            width: 100%;
+        }
 
        .whatsapp-button{
             background-color: #4ac959;

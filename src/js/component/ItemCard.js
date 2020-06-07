@@ -40,7 +40,7 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 		<Card className="full-card">
 			<Card.Img variant="top" src={holder} className="card-img" />
 			<Card.Body className="card-body">
-				<Card.Title>{item.name}</Card.Title>
+				<Card.Title className="name-section">{item.name}</Card.Title>
 				<Card.Subtitle className="price-section">${item.price}</Card.Subtitle>
 				<Card.Text className="full-input">
 					<InputGroup className="mb-3 input-style">

@@ -38,7 +38,7 @@ export const Home = () => (
 
 			<footer>
 				<Link to="/Main">
-					<Button variant="danger" className="button-start">
+					<Button variant="danger" onClick={() => window.scrollTo(0, 0)} className="button-start">
 						EMPEZAR AHORA
 					</Button>
 				</Link>
