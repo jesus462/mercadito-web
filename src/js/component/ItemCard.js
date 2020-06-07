@@ -48,8 +48,8 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 							<Button
 								variant="outline-secondary"
 								className="input-button"
-								onClick={() => setUnit(unit + 1)}>
-								+
+								onClick={() => (unit >= 2 ? setUnit(unit - 1) : setUnit(unit - 0))}>
+								-
 							</Button>
 						</InputGroup.Prepend>
 						<FormControl
@@ -63,8 +63,8 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 							<Button
 								variant="outline-secondary"
 								className="input-button"
-								onClick={() => (unit >= 2 ? setUnit(unit - 1) : setUnit(unit - 0))}>
-								-
+								onClick={() => setUnit(unit + 1)}>
+								+
 							</Button>
 						</InputGroup.Append>
 					</InputGroup>

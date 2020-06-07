@@ -36,7 +36,7 @@ export const SnacksItems = () => {
 
 	let filteredSnacksItems = store.items.filter(item => {
 		if (search.length < 1) {
-			return item.type.toLowerCase() == "higiene";
+			return item.type.toLowerCase() == "snacks";
 		} else {
 			return item.name.toLowerCase().indexOf(search.toLowerCase()) == !-1;
 		}
