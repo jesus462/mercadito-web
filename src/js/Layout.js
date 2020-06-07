@@ -10,6 +10,7 @@ import { InDemandItems } from "./views/InDemandItems";
 import { SnacksItems } from "./views/SnacksItems";
 import { CleaningItems } from "./views/CleaningItems";
 import { Billing } from "./views/Billing";
+import { Thanks } from "./views/Thanks";
 import injectContext from "./store/Context";
 
 //create your first component
@@ -32,6 +33,7 @@ export const Layout = () => {
 						<Route exact path="/Main/Limpieza" component={CleaningItems} />
 						<Route exact path="/Main/Higiene" component={HygieneItems} />
 						<Route exact path="/Billing" component={Billing} />
+						<Route exact path="/Thanks" component={Thanks} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 				</div>

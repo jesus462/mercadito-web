@@ -17,6 +17,18 @@ export const Main = () => {
 
 	const [count, setCount] = useState(0);
 
+	const [cartCounter, setCartCounter] = useState(0);
+
+	const handleClickForward = () => {
+		setCount(count + 6);
+		window.scrollTo(0, 0);
+	};
+
+	const handleClickBackward = () => {
+		setCount(count - 6);
+		window.scrollTo(0, 0);
+	};
+
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
 		setCount(0);
@@ -27,13 +39,13 @@ export const Main = () => {
 	});
 
 	let itemCards = filteredItems.slice(count, count + 6).map(item => {
-		return <ItemCard key={item.id} item={item} />;
+		return <ItemCard key={item.id} item={item} cartCounter={cartCounter} setCartCounter={setCartCounter} />;
 	});
 
 	return (
 		<div>
 			<div className="sticky-top">
-				<NavBar />
+				<NavBar cartCounter={cartCounter} />
 				<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
 				<div className="search-bar">
 					<InputGroup className="mb-3 search-bar-style">
@@ -58,14 +70,14 @@ export const Main = () => {
 				<Button
 					variant="dark"
 					className="buttons"
-					onClick={() => setCount(count - 6)}
+					onClick={handleClickBackward}
 					style={{ display: count < 6 ? "none" : "inline" }}>
 					<i className="fas fa-backward" />
 				</Button>
 				<Button
 					variant="dark"
 					className="buttons"
-					onClick={() => setCount(count + 6)}
+					onClick={handleClickForward}
 					style={{ display: itemCards.length < 5 || filteredItems.length < count + 7 ? "none" : "inline" }}>
 					<i className="fas fa-forward" />
 				</Button>

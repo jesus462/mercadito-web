@@ -59,10 +59,11 @@ input[type=number] {
             .table-style{
                 width: 95%;
                 text-align: left;
+                border-radius: 30px;
 
                 .total-row{
                     font-weight: bold;
-                    border-bottom: 1px solid #707070;
+                    border-bottom: 1px solid #c7c7c7;
                 }
             }
         }
@@ -74,7 +75,7 @@ input[type=number] {
         width:90%;
 
         .input-style{
-            width: 85%;
+            width: 90%;
 
             .input-text{
                 border-top-left-radius: 15px;
@@ -83,6 +84,71 @@ input[type=number] {
                 border-color: #707070;
             }
         }
+        .inputs-button{
+            background-color: #0E0A56;
+        }
     }
 }
 
+.footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    .container-whatsapp{
+        width: 75%;
+        display: flex;
+        justify-content: flex-end;
+
+       .whatsapp-button{
+            background-color: #4ac959;
+            padding: 10px 15px;
+            border-radius: 37px;
+            border-color: white;
+
+            .icon{
+                font-size: 50px;
+            }
+        } 
+    }
+    
+}
+
+@media (max-width: 775px) {
+    .container{
+    
+        .billing-container{
+            width: 100%;
+    
+            .table-container{
+    
+                .table-style{
+                    width: 100%;
+                    font-size: 15px;
+                }
+            }
+        }
+        .container-input{
+            width:100%;
+    
+            .input-style{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container{
+
+        .billing-container{   
+
+            .table-container{
+
+                .table-style{
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}

@@ -12,6 +12,7 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 	const handleClickCartDelete = e => {
 		store.cartItems = [];
 		handleClose();
+		window.location.reload(false);
 	};
 
 	let allSubTotalArray = [0];

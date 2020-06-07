@@ -1,0 +1,19 @@
+.thanks-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+
+    .text{
+        font-size: 100px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 650px) {
+    .thanks-container{
+    
+        .text{
+            font-size: 50px;
+        }
+    }
+}

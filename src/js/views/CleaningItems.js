@@ -17,6 +17,16 @@ export const CleaningItems = () => {
 
 	const [count, setCount] = useState(0);
 
+	const handleClickForward = () => {
+		setCount(count + 6);
+		window.scrollTo(0, 0);
+	};
+
+	const handleClickBackward = () => {
+		setCount(count - 6);
+		window.scrollTo(0, 0);
+	};
+
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
 		setCount(0);
@@ -60,14 +70,14 @@ export const CleaningItems = () => {
 				<Button
 					variant="dark"
 					className="buttons"
-					onClick={() => setCount(count - 6)}
+					onClick={handleClickBackward}
 					style={{ display: count < 6 ? "none" : "inline" }}>
 					<i className="fas fa-backward" />
 				</Button>
 				<Button
 					variant="dark"
 					className="buttons"
-					onClick={() => setCount(count + 6)}
+					onClick={handleClickForward}
 					style={{
 						display: itemCards.length < 5 || filteredCleaningItems.length < count + 7 ? "none" : "inline"
 					}}>

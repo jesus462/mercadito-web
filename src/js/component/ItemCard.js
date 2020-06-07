@@ -7,27 +7,30 @@ import holder from "../../img/holder.png";
 
 import "../../styles/component/ItemCard.scss";
 
-export const ItemCard = ({ item }) => {
+export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 	const { store, actions } = useContext(Context);
 
 	const [unit, setUnit] = useState(1);
 
 	const handleClickAddItem = e => {
 		if (store.cartItems.length < 1) {
-			item.units = unit;
+			item["units"] = unit;
 			store.cartItems.push(item);
+			setCartCounter(cartCounter + 1);
 		} else if (item.units) {
 			for (let i = 0; i < store.cartItems.length; i++) {
-				if (item.code === store.cartItems[i].code) {
-					store.cartItems[i].units += unit;
-					if (item.code !== store.cartItems[i].code) {
-						store.cartItems.push(item);
-					}
+				switch (store.cartItems[i].code) {
+					case item.code:
+						store.cartItems[i].units += unit;
+						break;
+					default:
+						break;
 				}
 			}
 		} else {
-			item.units = unit;
+			item["units"] = unit;
 			store.cartItems.push(item);
+			setCartCounter(cartCounter + 1);
 		}
 
 		setUnit(1);
@@ -55,7 +58,6 @@ export const ItemCard = ({ item }) => {
 							min="1"
 							className="input-text"
 							value={unit}
-							//onChange={e => setUnit(e.target.value)}
 						/>
 						<InputGroup.Append>
 							<Button
@@ -76,5 +78,7 @@ export const ItemCard = ({ item }) => {
 };
 
 ItemCard.propTypes = {
-	item: PropTypes.object
+	item: PropTypes.object,
+	cartCounter: PropTypes.number,
+	setCartCounter: PropTypes.func
 };

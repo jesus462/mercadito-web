@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
 import { Button, Table, InputGroup, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import logo from "../../img/logo.png";
 
@@ -8,6 +9,15 @@ import "../../styles/views/Billing.scss";
 
 export const Billing = () => {
 	const { store, actions } = useContext(Context);
+
+	const [show, setShow] = useState(true);
+
+	const [deliveryInfo, setDeliveryInfo] = useState([]);
+	const [info, setInfo] = useState({
+		name: "",
+		direction: "",
+		phone: ""
+	});
 
 	let allSubTotalArray = [0];
 
@@ -26,13 +36,56 @@ export const Billing = () => {
 		);
 	});
 
+	let deliveryInfoMap = deliveryInfo.map(infoMap => {
+		return (
+			<tfoot key={infoMap.id}>
+				<tr>
+					<th scope="row">Nombre:</th>
+					<td colSpan="4">{infoMap.name}</td>
+				</tr>
+				<tr>
+					<th scope="row">Dirección:</th>
+					<td colSpan="4">{infoMap.direction}</td>
+				</tr>
+				<tr>
+					<th scope="row">Teléfono:</th>
+					<td colSpan="4">{infoMap.phone}</td>
+				</tr>
+			</tfoot>
+		);
+	});
+
+	const handleChangeInfo = e => {
+		setInfo({
+			...info /*esto hace una copia del estado y va agregando y guardando, agregando ...*/,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const handleClickAdding = () => {
+		deliveryInfo.push(info);
+		setShow(false);
+	};
+
+	const handleClickCorrection = () => {
+		setInfo({
+			name: "",
+			direction: "",
+			phone: ""
+		});
+		setDeliveryInfo([]);
+		setShow(true);
+	};
+
 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	let total = allSubTotalArray.reduce(reducer);
 
 	return (
 		<div>
 			<div className="container-logo">
-				<img src={logo} className="logo" />
+				<Link to="/Main">
+					<img src={logo} className="logo" />
+				</Link>
 			</div>
 			<p className="header">Carrito de compras</p>
 			<div className="headerinfo-container">
@@ -42,7 +95,7 @@ export const Billing = () => {
 				<div className="billing-container">
 					<p className="head-billing">FACTURA</p>
 					<div className="table-container">
-						<Table bordered hover className="table-style">
+						<Table hover className="table-style">
 							<thead>
 								<tr>
 									<th>Código</th>
@@ -60,34 +113,67 @@ export const Billing = () => {
 									</td>
 								</tr>
 							</tbody>
+							{deliveryInfoMap}
 						</Table>
 					</div>
 				</div>
 				<div className="container-input">
-					<InputGroup className="mb-3 input-style">
-						<FormControl aria-describedby="basic-addon1" className="input-text" type="text" />
-						<InputGroup.Append>
-							<Button variant="outline-secondary" className="input-button">
-								Guardar
-							</Button>
-						</InputGroup.Append>
+					<InputGroup className="mb-3 input-style" style={{ display: !show ? "none" : "inline" }}>
+						<FormControl
+							aria-describedby="basic-addon1"
+							className="input-text"
+							type="text"
+							value={info.name}
+							placeholder="Ingrese su nombre"
+							name="name"
+							onChange={handleChangeInfo}
+						/>
 					</InputGroup>
-					<InputGroup className="mb-3 input-style">
-						<FormControl aria-describedby="basic-addon1" className="input-text" type="text" />
-						<InputGroup.Append>
-							<Button variant="outline-secondary" className="input-button">
-								Guardar
-							</Button>
-						</InputGroup.Append>
+					<InputGroup className="mb-3 input-style" style={{ display: !show ? "none" : "inline" }}>
+						<FormControl
+							aria-describedby="basic-addon1"
+							className="input-text"
+							type="text"
+							value={info.direction}
+							placeholder="Ingrese la dirección de envío"
+							name="direction"
+							onChange={handleChangeInfo}
+						/>
 					</InputGroup>
-					<InputGroup className="mb-3 input-style">
-						<FormControl aria-describedby="basic-addon1" className="input-text" type="number" />
-						<InputGroup.Append>
-							<Button variant="outline-secondary" className="input-button">
-								Guardar
-							</Button>
-						</InputGroup.Append>
+					<InputGroup className="mb-3 input-style" style={{ display: !show ? "none" : "inline" }}>
+						<FormControl
+							aria-describedby="basic-addon1"
+							className="input-text"
+							type="number"
+							value={info.phone}
+							placeholder="Ingrese su teléfono"
+							name="phone"
+							onChange={handleChangeInfo}
+						/>
 					</InputGroup>
+					<Button
+						className="inputs-button"
+						style={{ display: !show ? "none" : "inline" }}
+						onClick={handleClickAdding}>
+						Agregar a factura
+					</Button>
+					<Button
+						className="inputs-button"
+						style={{ display: show ? "none" : "inline" }}
+						onClick={handleClickCorrection}>
+						Corregir
+					</Button>
+				</div>
+			</div>
+			<div className="footer">
+				<div className="container-whatsapp">
+					<div>
+						<Link to="/Thanks">
+							<Button className="whatsapp-button">
+								<i className="fab fa-whatsapp icon" />
+							</Button>
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>
