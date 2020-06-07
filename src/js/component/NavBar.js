@@ -51,7 +51,7 @@ export const NavBar = ({ cartCounter }) => {
 					variant="danger"
 					className="cart-indicator"
 					style={{ display: store.cartItems.length >= 1 ? "inline" : "none" }}>
-					{cartCounter}
+					{cartCounter === store.cartItems.length ? cartCounter : (cartCounter = store.cartItems.length)}
 				</Button>
 			</Button>
 			<ShoppingCartModal show={show} handleClose={handleClose} />

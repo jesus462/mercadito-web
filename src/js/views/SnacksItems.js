@@ -17,6 +17,8 @@ export const SnacksItems = () => {
 
 	const [count, setCount] = useState(0);
 
+	const [cartCounter, setCartCounter] = useState(0);
+
 	const handleClickForward = () => {
 		setCount(count + 6);
 		window.scrollTo(0, 0);
@@ -41,12 +43,12 @@ export const SnacksItems = () => {
 	});
 
 	let itemCards = filteredSnacksItems.slice(count, count + 6).map(item => {
-		return <ItemCard key={item.id} item={item} />;
+		return <ItemCard key={item.id} item={item} cartCounter={cartCounter} setCartCounter={setCartCounter} />;
 	});
 
 	return (
 		<div>
-			<NavBar />
+			<NavBar cartCounter={cartCounter} />
 			<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
 			<div className="search-bar">
 				<InputGroup className="mb-3 search-bar-style">
