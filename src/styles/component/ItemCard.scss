@@ -9,16 +9,26 @@ input[type=number] {
 }
 
 .full-card{
-    width: 150px;
+    width: 180px;
     margin: 15px 5px;
     text-align: center;
     border-radius: 25px;
     border-color: #707070;
+    @media (max-width: 400px){
+        width: 150px;
+    }
     
-    .card-img{
+    .img-container{
+        display: flex;
+        justify-content: center;
+
+        .card-img{
         padding: 5px 5px 0 5px;
         border-radius: 25px;
+        width: 100px;
+        }
     }
+    
     .card-body{
         padding: 5px;
         

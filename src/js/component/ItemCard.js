@@ -38,7 +38,9 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 
 	return (
 		<Card className="full-card">
-			<Card.Img variant="top" src={holder} className="card-img" />
+			<div className="img-container">
+				<Card.Img variant="top" src={holder} className="card-img" />
+			</div>
 			<Card.Body className="card-body">
 				<Card.Title className="name-section">{item.name}</Card.Title>
 				<Card.Subtitle className="price-section">${item.price}</Card.Subtitle>

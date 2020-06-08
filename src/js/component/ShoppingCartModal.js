@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
 import PropTypes from "prop-types";
-import { Modal, Button, Table } from "react-bootstrap";
+import { Modal, Button, Table, InputGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import "../../styles/component/ShoppingCartModal.scss";

@@ -5,7 +5,7 @@ import "../../styles/views/Thanks.scss";
 export const Thanks = () => {
 	return (
 		<div className="thanks-container">
-			<p className="text">Graciaaas :).</p>
+			<p className="text">Graciaaas :)</p>
 		</div>
 	);
 };
