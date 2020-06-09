@@ -15,8 +15,12 @@ export const NavBar = ({ cartCounter }) => {
 	const { store, actions } = useContext(Context);
 
 	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+	const handleClose = () => {
+		setShow(false);
+	};
+	const handleShow = () => {
+		setShow(true);
+	};
 
 	return (
 		<Navbar className="full-navbar" expand="sm">

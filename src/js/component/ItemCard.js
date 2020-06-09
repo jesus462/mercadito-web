@@ -14,23 +14,39 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 
 	const handleClickAddItem = e => {
 		if (store.cartItems.length < 1) {
-			item["units"] = unit;
+			item.units = unit;
 			store.cartItems.push(item);
 			setCartCounter(cartCounter + 1);
-		} else if (item.units) {
-			for (let i = 0; i < store.cartItems.length; i++) {
-				switch (store.cartItems[i].code) {
-					case item.code:
-						store.cartItems[i].units += unit;
-						break;
-					default:
-						break;
-				}
-			}
 		} else {
-			item["units"] = unit;
-			store.cartItems.push(item);
-			setCartCounter(cartCounter + 1);
+			let filterByCode = store.cartItems.filter(cartItem => {
+				return cartItem.code === item.code;
+			});
+			if (filterByCode.length > 0) {
+				filterByCode[0].units += unit;
+			} else {
+				item.units = unit;
+				store.cartItems.push(item);
+				setCartCounter(cartCounter + 1);
+			}
+			/*let inCart = 0;
+			let outCart = 0;
+
+			console.log("else");
+			for (let i = 0; i < store.cartItems.length; i++) {
+				if (store.cartItems[i].code === item.code && outCart == 0 && inCart == 0) {
+					inCart = +1;
+					store.cartItems[i].units += unit;
+					console.log("ya en carrito");
+				} else if (store.cartItems[i].code !== item.code && inCart == 0 && outCart == 0) {
+					outCart = +1;
+					item["units"] = unit;
+					store.cartItems.push(item);
+					setCartCounter(cartCounter + 1);
+					console.log("no esta en carrito agregar");
+				} else if (inCart > 0) {
+					break;
+				}
+			}*/
 		}
 
 		setUnit(1);

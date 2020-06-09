@@ -1,5 +1,4 @@
 .full-navbar{
-    background-color: #EAEAEE;
     
     .logo{
         height: 40px;
@@ -20,8 +19,9 @@
         }       
     }
     .icon-button{
-        background-color: #EAEAEE;
-        border-color: #EAEAEE;
+        background-color: white;
+        border-color: white;
+        box-shadow: none;
         border-radius: 50px;
 
         .icon-cart{
