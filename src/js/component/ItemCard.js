@@ -28,25 +28,6 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 				store.cartItems.push(item);
 				setCartCounter(cartCounter + 1);
 			}
-			/*let inCart = 0;
-			let outCart = 0;
-
-			console.log("else");
-			for (let i = 0; i < store.cartItems.length; i++) {
-				if (store.cartItems[i].code === item.code && outCart == 0 && inCart == 0) {
-					inCart = +1;
-					store.cartItems[i].units += unit;
-					console.log("ya en carrito");
-				} else if (store.cartItems[i].code !== item.code && inCart == 0 && outCart == 0) {
-					outCart = +1;
-					item["units"] = unit;
-					store.cartItems.push(item);
-					setCartCounter(cartCounter + 1);
-					console.log("no esta en carrito agregar");
-				} else if (inCart > 0) {
-					break;
-				}
-			}*/
 		}
 
 		setUnit(1);

@@ -96,7 +96,7 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 						className="delete-button"
 						onClick={handleClickEndEdit}
 						style={{ display: !edit ? "none" : "inline" }}>
-						Terminar Edición
+						Guardar Cambios
 					</Button>
 				</div>
 			</Modal.Body>
@@ -107,7 +107,7 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 				<Link
 					to="/Billing"
 					className="billing-button"
-					style={{ display: store.cartItems.length < 1 ? "none" : "inline" }}>
+					style={{ display: store.cartItems.length < 1 || edit ? "none" : "inline" }}>
 					<Button variant="dark" className="shopping-button" onClick={handleClose}>
 						Pasar a Facturación
 					</Button>

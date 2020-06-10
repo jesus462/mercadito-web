@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { NavBar } from "../component/NavBar";
 import { ItemCard } from "../component/ItemCard";
@@ -15,23 +16,12 @@ export const FoodItems = () => {
 
 	const [search, setSearch] = useState("");
 
-	const [count, setCount] = useState(0);
-
 	const [cartCounter, setCartCounter] = useState(0);
 
-	const handleClickForward = () => {
-		setCount(count + 6);
-		window.scrollTo(0, 0);
-	};
-
-	const handleClickBackward = () => {
-		setCount(count - 6);
-		window.scrollTo(0, 0);
-	};
+	const currentPage = "food";
 
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
-		setCount(0);
 	};
 
 	let filteredFoodItems = store.items.filter(item => {
@@ -42,7 +32,7 @@ export const FoodItems = () => {
 		}
 	});
 
-	let itemCards = filteredFoodItems.slice(count, count + 6).map(item => {
+	let itemCards = filteredFoodItems.map(item => {
 		return <ItemCard key={item.id} item={item} cartCounter={cartCounter} setCartCounter={setCartCounter} />;
 	});
 
@@ -50,7 +40,6 @@ export const FoodItems = () => {
 		<div>
 			<div className="sticky-top">
 				<NavBar cartCounter={cartCounter} />
-				<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
 				<div className="search-bar">
 					<InputGroup className="mb-3 search-bar-style">
 						<FormControl
@@ -59,6 +48,7 @@ export const FoodItems = () => {
 							type="text"
 							aria-describedby="basic-addon1"
 							className="input"
+							placeholder="Elige los productos de tu preferencia"
 						/>
 						<InputGroup.Append>
 							<Button variant="light" className="button-search">
@@ -68,26 +58,14 @@ export const FoodItems = () => {
 					</InputGroup>
 				</div>
 			</div>
-			<MobileNavbar />
+			<MobileNavbar currentPage={currentPage} />
+			<p className="section">Alimentos</p>
+			<p className="back">
+				<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
+					Volver a Principal
+				</Link>
+			</p>
 			<div className="card-container">{itemCards}</div>
-			<div className="buttons-container">
-				<Button
-					variant="dark"
-					className="buttons"
-					onClick={handleClickBackward}
-					style={{ display: count < 6 ? "none" : "inline" }}>
-					<i className="fas fa-backward" />
-				</Button>
-				<Button
-					variant="dark"
-					className="buttons"
-					onClick={handleClickForward}
-					style={{
-						display: itemCards.length < 5 || filteredFoodItems.length < count + 7 ? "none" : "inline"
-					}}>
-					<i className="fas fa-forward" />
-				</Button>
-			</div>
 		</div>
 	);
 };

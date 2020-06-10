@@ -25,27 +25,27 @@ export const NavBar = ({ cartCounter }) => {
 	return (
 		<Navbar className="full-navbar" expand="sm">
 			<Navbar.Brand>
-				<Link to="/Main">
+				<Link to="/Main" onClick={() => window.scrollTo(0, 0)}>
 					<img src={logo} className="logo" />
 				</Link>
 			</Navbar.Brand>
 			<Navbar.Collapse className="links-container" id="basic-navbar-nav">
-				<Link className="nav-links" to="/Main/Populares">
+				<Link className="nav-links" to="/Main/Populares" onClick={() => window.scrollTo(0, 0)}>
 					Populares
 				</Link>
-				<Link className="nav-links" to="/Main/Snacks">
+				<Link className="nav-links" to="/Main/Snacks" onClick={() => window.scrollTo(0, 0)}>
 					Snacks
 				</Link>
-				<Link className="nav-links" to="/Main/Alimentos">
+				<Link className="nav-links" to="/Main/Alimentos" onClick={() => window.scrollTo(0, 0)}>
 					Alimentos
 				</Link>
-				<Link className="nav-links" to="/Main/Bebidas">
+				<Link className="nav-links" to="/Main/Bebidas" onClick={() => window.scrollTo(0, 0)}>
 					Bebidas
 				</Link>
-				<Link className="nav-links" to="/Main/Limpieza">
+				<Link className="nav-links" to="/Main/Limpieza" onClick={() => window.scrollTo(0, 0)}>
 					Limpieza
 				</Link>
-				<Link className="nav-links" to="/Main/Higiene">
+				<Link className="nav-links" to="/Main/Higiene" onClick={() => window.scrollTo(0, 0)}>
 					Higiene Personal
 				</Link>
 			</Navbar.Collapse>

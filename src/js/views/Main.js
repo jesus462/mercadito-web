@@ -15,30 +15,17 @@ export const Main = () => {
 
 	const [search, setSearch] = useState("");
 
-	const [count, setCount] = useState(0);
-
 	const [cartCounter, setCartCounter] = useState(0);
-
-	const handleClickForward = () => {
-		setCount(count + 6);
-		window.scrollTo(0, 0);
-	};
-
-	const handleClickBackward = () => {
-		setCount(count - 6);
-		window.scrollTo(0, 0);
-	};
 
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
-		setCount(0);
 	};
 
 	let filteredItems = store.items.filter(item => {
 		return item.name.toLowerCase().indexOf(search.toLowerCase()) == !-1;
 	});
 
-	let itemCards = filteredItems.slice(count, count + 6).map(item => {
+	let itemCards = filteredItems.map(item => {
 		return <ItemCard key={item.id} item={item} cartCounter={cartCounter} setCartCounter={setCartCounter} />;
 	});
 
@@ -46,7 +33,6 @@ export const Main = () => {
 		<div>
 			<div className="sticky-top">
 				<NavBar cartCounter={cartCounter} />
-				<p className="header">ELIGE LOS PRODUCTOS DE TU PREFERENCIA</p>
 				<div className="search-bar">
 					<InputGroup className="mb-3 search-bar-style">
 						<FormControl
@@ -55,6 +41,7 @@ export const Main = () => {
 							type="text"
 							aria-describedby="basic-addon1"
 							className="input"
+							placeholder="Elige los productos de tu preferencia"
 						/>
 						<InputGroup.Append>
 							<Button variant="light" className="button-search">
@@ -66,22 +53,6 @@ export const Main = () => {
 			</div>
 			<MobileNavbar />
 			<div className="card-container">{itemCards}</div>
-			<div className="buttons-container">
-				<Button
-					variant="dark"
-					className="buttons"
-					onClick={handleClickBackward}
-					style={{ display: count < 6 ? "none" : "inline" }}>
-					<i className="fas fa-backward" />
-				</Button>
-				<Button
-					variant="dark"
-					className="buttons"
-					onClick={handleClickForward}
-					style={{ display: itemCards.length < 5 || filteredItems.length < count + 7 ? "none" : "inline" }}>
-					<i className="fas fa-forward" />
-				</Button>
-			</div>
 		</div>
 	);
 };
