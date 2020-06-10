@@ -2,12 +2,18 @@
     background-color: #EAEAEE;
 } // this modal-content is a class of the component modal.
 
-
+.modal-body{
+    padding: 5px;
+}
     
 .table-style{
     text-align: left;
-    font-size: 14px;
-    
+    font-size: 15px;
+
+    .cell-data{
+        padding: 0;
+        vertical-align: middle;
+    }
     .total-row{
         font-weight: bold;
         text-align: right;
@@ -48,15 +54,10 @@
     justify-content: center;
 
     .delete-button{
-        width: 80%;
+        width: 40%;
+        margin: 0 4px;
         @media (max-width: 600px) {
            font-size: 14px; 
         }
-    }
-}
-
-@media (max-width: 600px) {
-    .table-style{
-        font-size: 10px;
     }
 }

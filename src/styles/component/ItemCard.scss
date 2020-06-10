@@ -18,7 +18,7 @@ input[type=number] {
     @media (max-width: 400px){
         width: 150px;
     }
-    @media (max-width: 320px){
+    @media (max-width: 340px){
         width: 140px;
     }
     
@@ -60,7 +60,8 @@ input[type=number] {
                     color: #0E0A56;
                     text-align: center;
                     border-color: #0E0A56;
-                    font-size: 15px
+                    font-size: 15px;
+                    padding: 0;
                 }
             }
         }
@@ -73,7 +74,7 @@ input[type=number] {
             border-color: #0E0A56;
             border-width: 2px;
             margin-bottom: 5px;
-            @media (max-width: 320px){
+            @media (max-width: 340px){
                 font-size: 13px;
             }
         }

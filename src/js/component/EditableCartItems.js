@@ -49,10 +49,10 @@ export const EditableCartItems = ({ cartEditItem, setCartEdit, cartEdit }) => {
 					</Button>
 				</InputGroup>
 			</td>
-			<td>{cartEditItem.name}</td>
-			<td>${unit * cartEditItem.price}</td>
-			<td className="full-input">
-				<Button variant="danger" onClick={handleClickDeleteItem}>
+			<td className="tdata">{cartEditItem.name}</td>
+			<td className="tdata">${unit * cartEditItem.price}</td>
+			<td className="cell-delete">
+				<Button className="delete" variant="danger" onClick={handleClickDeleteItem}>
 					x
 				</Button>
 			</td>

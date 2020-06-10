@@ -37,10 +37,11 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 
 		return (
 			<tr key={cartItem.id}>
-				<td>{cartItem.units}</td>
-				<td>{cartItem.name}</td>
-				<td>${cartItem.price}</td>
-				<td>${cartItem.subTotal}</td>
+				<td className="cell-data">
+					<strong>{cartItem.units}</strong> x {cartItem.name}
+				</td>
+				<td className="cell-data">${cartItem.price}</td>
+				<td className="cell-data">${cartItem.subTotal}</td>
 			</tr>
 		);
 	});
@@ -68,7 +69,7 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 				<Table bordered hover className="table-style">
 					<thead>
 						<tr>
-							<th>Cantidad</th>
+							<th style={{ display: !edit ? "none" : "table-cell" }}>Cantidad</th>
 							<th>Producto</th>
 							<th>Precio</th>
 							<th style={{ display: edit ? "none" : "table-cell" }}>Subtotal</th>
@@ -98,6 +99,13 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 						style={{ display: !edit ? "none" : "inline" }}>
 						Guardar Cambios
 					</Button>
+					<Button
+						variant="danger"
+						className="delete-button"
+						onClick={handleClickCartDelete}
+						style={{ display: edit || store.cartItems.length < 1 ? "none" : "inline" }}>
+						Vaciar Carrito
+					</Button>
 				</div>
 			</Modal.Body>
 			<Modal.Footer className="buttons-footer">
@@ -109,7 +117,7 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 					className="billing-button"
 					style={{ display: store.cartItems.length < 1 || edit ? "none" : "inline" }}>
 					<Button variant="dark" className="shopping-button" onClick={handleClose}>
-						Pasar a Facturación
+						Finalizar Compra
 					</Button>
 				</Link>
 			</Modal.Footer>
