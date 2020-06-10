@@ -27,11 +27,12 @@ export const Billing = () => {
 
 		return (
 			<tr key={cartItem.id}>
-				<td>{cartItem.code}</td>
-				<td>{cartItem.name}</td>
-				<td>{cartItem.units}</td>
-				<td>${cartItem.price}</td>
-				<td>${cartItem.subTotal}</td>
+				<td className="cell-data">{cartItem.code}</td>
+				<td className="cell-data">
+					<strong>{cartItem.units}</strong> x {cartItem.name}
+				</td>
+				<td className="cell-data">${cartItem.price}</td>
+				<td className="cell-data">${cartItem.subTotal}</td>
 			</tr>
 		);
 	});
@@ -40,16 +41,28 @@ export const Billing = () => {
 		return (
 			<tfoot key={infoMap.id}>
 				<tr>
-					<th scope="row">Nombre:</th>
-					<td colSpan="4">{infoMap.name}</td>
+					<th scope="row" className="cell-header">
+						Nombre:
+					</th>
+					<td colSpan="4" className="cell-data">
+						{infoMap.name}
+					</td>
 				</tr>
 				<tr>
-					<th scope="row">Dirección:</th>
-					<td colSpan="4">{infoMap.direction}</td>
+					<th scope="row" className="cell-header">
+						Dirección:
+					</th>
+					<td colSpan="4" className="cell-data">
+						{infoMap.direction}
+					</td>
 				</tr>
 				<tr>
-					<th scope="row">Teléfono:</th>
-					<td colSpan="4">{infoMap.phone}</td>
+					<th scope="row" className="cell-header">
+						Teléfono:
+					</th>
+					<td colSpan="4" className="cell-data">
+						{infoMap.phone}
+					</td>
 				</tr>
 			</tfoot>
 		);
@@ -87,22 +100,27 @@ export const Billing = () => {
 					<img src={logo} className="logo" />
 				</Link>
 			</div>
-			<p className="header">Carrito de compras</p>
+			<p className="header-billing">Carrito de compras</p>
+			<p className="back">
+				<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
+					<i className="fas fa-undo-alt" /> Volver a Principal
+				</Link>
+			</p>
 			<div className="headerinfo-container">
 				<p className="header-info">Verifica y envía tu pedido a nuestro WhatsApp</p>
 			</div>
+
 			<div className="container">
 				<div className="billing-container">
 					<p className="head-billing">FACTURA</p>
 					<div className="table-container">
-						<Table hover className="table-style">
+						<Table bordered hover className="table-style">
 							<thead>
 								<tr>
-									<th>Código</th>
-									<th>Descripción</th>
-									<th>Cantidad</th>
-									<th>P.v.p.</th>
-									<th>Subtotal</th>
+									<th className="cell-header">Código</th>
+									<th className="cell-header">Descripción</th>
+									<th className="cell-header">P.v.p.</th>
+									<th className="cell-header">Subtotal</th>
 								</tr>
 							</thead>
 							<tbody>

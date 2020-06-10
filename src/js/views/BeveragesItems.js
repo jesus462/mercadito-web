@@ -62,7 +62,7 @@ export const BeveragesItems = () => {
 			<p className="section">Bebidas</p>
 			<p className="back">
 				<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
-					Volver a Principal
+					<i className="fas fa-undo-alt" /> Volver a Principal
 				</Link>
 			</p>
 			<div className="card-container">{itemCards}</div>

@@ -69,10 +69,14 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 				<Table bordered hover className="table-style">
 					<thead>
 						<tr>
-							<th style={{ display: !edit ? "none" : "table-cell" }}>Cantidad</th>
-							<th>Producto</th>
-							<th>Precio</th>
-							<th style={{ display: edit ? "none" : "table-cell" }}>Subtotal</th>
+							<th className="cell-header" style={{ display: !edit ? "none" : "table-cell" }}>
+								Cantidad
+							</th>
+							<th className="cell-header">Producto</th>
+							<th className="cell-header">Precio</th>
+							<th className="cell-header" style={{ display: edit ? "none" : "table-cell" }}>
+								Subtotal
+							</th>
 						</tr>
 					</thead>
 					<tbody>{edit ? editableCartItems : cartItems}</tbody>

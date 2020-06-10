@@ -19,10 +19,21 @@ input[type=number] {
     }
 }
 
-.header{
+.back{ 
+    text-align: center;
+    
+    .text{
+    color: #0E0A56;;
+    font-size: 15px;
+    }
+}
+
+.header-billing{
+    text-align: center;
     background-color: #0E0A56;
     color: white;
     padding: 15px 0;
+    font-size: 25px;
 }
 
 .headerinfo-container{
@@ -33,6 +44,7 @@ input[type=number] {
         margin: 0;
         text-align: center;
         padding: 5px 0;
+        font-size: 15px;
     }
 }
 
@@ -58,8 +70,15 @@ input[type=number] {
             .table-style{
                 width: 95%;
                 text-align: left;
-                border-radius: 30px;
 
+                .cell-data{
+                    vertical-align: middle;
+                    padding: 5px 2px;
+                }
+                .cell-header{
+                    vertical-align: middle;
+                    padding: 5px 2px;
+                }
                 .total-row{
                     font-weight: bold;
                     border-bottom: 1px solid #c7c7c7;
@@ -154,7 +173,7 @@ input[type=number] {
             .table-container{
 
                 .table-style{
-                    font-size: 10px;
+                    //font-size: 10px;
                 }
             }
         }
