@@ -33,6 +33,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    padding: 0 100px;
+    @media (max-width: 600px) {
+        padding: 0;
+    }
 }
 
 .section{

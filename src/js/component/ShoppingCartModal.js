@@ -109,7 +109,7 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 					className="billing-button"
 					style={{ display: store.cartItems.length < 1 || edit ? "none" : "inline" }}>
 					<Button variant="dark" className="shopping-button" onClick={handleClose}>
-						Finalizar Compra
+						Ir a Carrito
 					</Button>
 				</Link>
 			</Modal.Footer>

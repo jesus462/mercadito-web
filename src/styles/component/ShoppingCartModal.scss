@@ -32,9 +32,10 @@
     .keep-shopping-button{
         background-color: #0E0A56;
         width: 40%;
-        @media (max-width: 600px) {
+        @media (max-width: 505px) {
             font-size: 14px; 
-         }
+            height: 56px;
+        }
     }
     .billing-button{
         width: 40%;
@@ -42,12 +43,13 @@
         text-decoration: none;
 
         .shopping-button{
-        background-color: #0E0A56;
-        width: 100%;
-        @media (max-width: 600px) {
-            font-size: 14px; 
-         }
-        } 
+            background-color: #0E0A56;
+            width: 100%;
+            @media (max-width: 505px) {
+                font-size: 14px; 
+                height: 56px;    
+            }
+        }
     }  
     
 }
