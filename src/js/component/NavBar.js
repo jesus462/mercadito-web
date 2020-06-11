@@ -22,6 +22,9 @@ export const NavBar = ({ cartCounter }) => {
 		setShow(true);
 	};
 
+	const reducer = (accumulator, currentValue) => accumulator + currentValue;
+	let totalUnits = store.totalUnits.reduce(reducer);
+
 	return (
 		<Navbar className="full-navbar" expand="sm">
 			<Navbar.Brand>
@@ -55,7 +58,7 @@ export const NavBar = ({ cartCounter }) => {
 					variant="danger"
 					className="cart-indicator"
 					style={{ display: store.cartItems.length >= 1 ? "inline" : "none" }}>
-					{cartCounter === store.cartItems.length ? cartCounter : (cartCounter = store.cartItems.length)}
+					{cartCounter === totalUnits ? cartCounter : (cartCounter = totalUnits)}
 				</Button>
 			</Button>
 			<ShoppingCartModal show={show} handleClose={handleClose} />

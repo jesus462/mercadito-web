@@ -3,6 +3,8 @@ import { Context } from "../store/Context";
 import { Button, Table, InputGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import { EditableCartItems } from "../component/EditableCartItems";
+
 import logo from "../../img/logo.png";
 
 import "../../styles/views/Billing.scss";
@@ -18,6 +20,20 @@ export const Billing = () => {
 		direction: "",
 		phone: ""
 	});
+
+	const [cartEdit, setCartEdit] = useState([]);
+
+	const [edit, setEdit] = useState(false);
+
+	const handleClickStartEdit = e => {
+		setCartEdit(store.cartItems);
+		setEdit(true);
+	};
+
+	const handleClickEndEdit = e => {
+		setEdit(false);
+		store.cartItems = cartEdit;
+	};
 
 	let allSubTotalArray = [0];
 
@@ -68,6 +84,17 @@ export const Billing = () => {
 		);
 	});
 
+	let editableCartItems = cartEdit.map(cartEditItem => {
+		return (
+			<EditableCartItems
+				cartEditItem={cartEditItem}
+				key={cartEditItem.id}
+				cartEdit={cartEdit}
+				setCartEdit={setCartEdit}
+			/>
+		);
+	});
+
 	const handleChangeInfo = e => {
 		setInfo({
 			...info /*esto hace una copia del estado y va agregando y guardando, agregando ...*/,
@@ -101,38 +128,64 @@ export const Billing = () => {
 				</Link>
 			</div>
 			<p className="header-billing">Carrito de compras</p>
-			<p className="back">
-				<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
-					<i className="fas fa-undo-alt" /> Volver a Principal
-				</Link>
-			</p>
 			<div className="headerinfo-container">
 				<p className="header-info">Verifica y envía tu pedido a nuestro WhatsApp</p>
+				<p className="back">
+					<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
+						<strong>
+							<i className="fas fa-angle-left" /> Volver a Principal
+						</strong>
+					</Link>
+				</p>
 			</div>
 
 			<div className="container">
 				<div className="billing-container">
 					<p className="head-billing">FACTURA</p>
 					<div className="table-container">
-						<Table bordered hover className="table-style">
+						<Table borderless hover className="table-style">
 							<thead>
 								<tr>
-									<th className="cell-header">Código</th>
+									<th className="cell-header" style={{ display: !edit ? "none" : "table-cell" }}>
+										Cantidad
+									</th>
+									<th className="cell-header" style={{ display: edit ? "none" : "table-cell" }}>
+										Código
+									</th>
 									<th className="cell-header">Descripción</th>
-									<th className="cell-header">P.v.p.</th>
+									<th className="cell-header" style={{ display: edit ? "none" : "table-cell" }}>
+										P.v.p.
+									</th>
 									<th className="cell-header">Subtotal</th>
 								</tr>
 							</thead>
 							<tbody>
-								{cartItems}
+								{edit ? editableCartItems : cartItems}
 								<tr>
-									<td colSpan="5" className="total-row">
+									<td
+										colSpan="5"
+										className="total-row"
+										style={{ display: edit ? "none" : "table-cell" }}>
 										Total: ${total}
 									</td>
 								</tr>
 							</tbody>
 							{deliveryInfoMap}
 						</Table>
+						<Button
+							variant="danger"
+							className="delete-button"
+							onClick={handleClickStartEdit}
+							style={{ display: store.cartItems.length < 1 || edit ? "none" : "inline" }}>
+							Editar Carrito
+						</Button>
+						<Button
+							variant="danger"
+							className="delete-button"
+							onClick={handleClickEndEdit}
+							style={{ display: store.cartItems.length < 1 || !edit ? "none" : "inline" }}>
+							Guardar Cambios
+						</Button>
 					</div>
 				</div>
 				<div className="container-input">
@@ -177,7 +230,7 @@ export const Billing = () => {
 						Agregar a factura
 					</Button>
 					<p style={{ display: show ? "none" : "inline" }} className="correction-info">
-						Verifica tus datos si hay algún error presiona el botón corregir
+						Verifica tus datos, si hay algún error presiona el botón Corregir
 					</p>
 					<Button
 						variant="dark"

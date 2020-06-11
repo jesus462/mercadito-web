@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
 import PropTypes from "prop-types";
-import { Modal, Button, Table, InputGroup, FormControl } from "react-bootstrap";
+import { Modal, Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { EditableCartItems } from "./EditableCartItems";
@@ -14,11 +14,6 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 	const [cartEdit, setCartEdit] = useState([]);
 
 	const [edit, setEdit] = useState(false);
-
-	const handleClickCartDelete = e => {
-		store.cartItems = [];
-		handleClose();
-	};
 
 	const handleClickStartEdit = e => {
 		setCartEdit(store.cartItems);
@@ -66,13 +61,13 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 				<Modal.Title>Carrito de Compras</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				<Table bordered hover className="table-style">
+				<Table borderless hover className="table-style">
 					<thead>
 						<tr>
 							<th className="cell-header" style={{ display: !edit ? "none" : "table-cell" }}>
 								Cantidad
 							</th>
-							<th className="cell-header">Producto</th>
+							<th className="cell-header">Descripción</th>
 							<th className="cell-header">Precio</th>
 							<th className="cell-header" style={{ display: edit ? "none" : "table-cell" }}>
 								Subtotal
@@ -102,13 +97,6 @@ export const ShoppingCartModal = ({ handleClose, show }) => {
 						onClick={handleClickEndEdit}
 						style={{ display: !edit ? "none" : "inline" }}>
 						Guardar Cambios
-					</Button>
-					<Button
-						variant="danger"
-						className="delete-button"
-						onClick={handleClickCartDelete}
-						style={{ display: edit || store.cartItems.length < 1 ? "none" : "inline" }}>
-						Vaciar Carrito
 					</Button>
 				</div>
 			</Modal.Body>

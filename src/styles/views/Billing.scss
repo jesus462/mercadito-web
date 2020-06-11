@@ -19,14 +19,7 @@ input[type=number] {
     }
 }
 
-.back{ 
-    text-align: center;
-    
-    .text{
-    color: #0E0A56;;
-    font-size: 15px;
-    }
-}
+
 
 .header-billing{
     text-align: center;
@@ -39,6 +32,14 @@ input[type=number] {
 .headerinfo-container{
     border: 1px solid #707070;
 
+    .back{ 
+        text-align: center;
+        
+        .text{
+        color: #0E0A56;;
+        font-size: 15px;
+        }
+    }
     .header-info{
         color: #0E0A56;
         margin: 0;
@@ -65,23 +66,38 @@ input[type=number] {
         }
         .table-container{
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
+            margin-bottom: 20px;
 
+            .delete-button{
+                width: 160px;
+                margin: 0 4px;
+                font-size: 15px; 
+            }
+            
             .table-style{
                 width: 95%;
                 text-align: left;
-
+                
                 .cell-data{
                     vertical-align: middle;
                     padding: 5px 2px;
                 }
-                .cell-header{
+                thead{
+                    border-top: solid 1px;
+                    .cell-header{
                     vertical-align: middle;
                     padding: 5px 2px;
                 }
+                }
+                
                 .total-row{
                     font-weight: bold;
                     border-bottom: 1px solid #c7c7c7;
+                }
+                tfoot{
+                    border-bottom: solid 1px;
                 }
             }
         }
@@ -99,17 +115,20 @@ input[type=number] {
                 border-radius: 20px;
                 box-shadow: none;
                 border-color: #707070;
+                font-size: 15px;
             }
         }
         .inputs-button{
             background-color: #0E0A56;
             border-color: #0E0A56;
+            font-size: 15px;
         }
         .correction-info{
             color: #0E0A56;
             margin: 0;
             text-align: center;
             padding: 5px 0;
+            width: 100%;
         }
     }
 }

@@ -16,17 +16,21 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 		if (store.cartItems.length < 1) {
 			item.units = unit;
 			store.cartItems.push(item);
-			setCartCounter(cartCounter + 1);
+			setCartCounter((cartCounter += unit));
+			store.totalUnits.push(unit);
 		} else {
 			let filterByCode = store.cartItems.filter(cartItem => {
 				return cartItem.code === item.code;
 			});
 			if (filterByCode.length > 0) {
 				filterByCode[0].units += unit;
+				setCartCounter((cartCounter += unit));
+				store.totalUnits.push(unit);
 			} else {
 				item.units = unit;
 				store.cartItems.push(item);
-				setCartCounter(cartCounter + 1);
+				setCartCounter((cartCounter += unit));
+				store.totalUnits.push(unit);
 			}
 		}
 
