@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
 import { Button, Card, InputGroup, FormControl } from "react-bootstrap";
+import { Image } from "cloudinary-react";
 import PropTypes from "prop-types";
 
 import holder from "../../img/holder.png";
@@ -40,7 +41,7 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 	return (
 		<Card className="full-card">
 			<div className="img-container">
-				<Card.Img variant="top" src={holder} className="card-img" />
+				<Image cloudName="duu99bl6f" publicId={item.code} className="card-img" />
 			</div>
 			<Card.Body className="card-body">
 				<Card.Title className="name-section">{item.name}</Card.Title>
