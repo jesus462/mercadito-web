@@ -13,6 +13,12 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 
 	const [unit, setUnit] = useState(1);
 
+	const [unitIndicator, setUnitIndicator] = useState(0);
+
+	let filterByCode = store.cartItems.filter(cartItem => {
+		return cartItem.code === item.code;
+	});
+
 	const handleClickAddItem = e => {
 		if (store.cartItems.length < 1) {
 			item.units = unit;
@@ -20,9 +26,6 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 			setCartCounter((cartCounter += unit));
 			store.totalUnits.push(unit);
 		} else {
-			let filterByCode = store.cartItems.filter(cartItem => {
-				return cartItem.code === item.code;
-			});
 			if (filterByCode.length > 0) {
 				filterByCode[0].units += unit;
 				setCartCounter((cartCounter += unit));
@@ -41,6 +44,9 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 	return (
 		<Card className="full-card">
 			<div className="img-container">
+				<p style={{ display: filterByCode.length > 0 ? "inline" : "none" }} className="cart-indicator">
+					Has agregado el producto al carrito
+				</p>
 				<Image cloudName="duu99bl6f" publicId={item.code} className="card-img" />
 			</div>
 			<Card.Body className="card-body">

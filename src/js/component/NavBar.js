@@ -4,8 +4,6 @@ import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { ShoppingCartModal } from "./ShoppingCartModal";
-
 import logo from "../../img/logo.png";
 import shopping from "../../img/shopping-cart.png";
 
@@ -13,14 +11,6 @@ import "../../styles/component/NavBar.scss";
 
 export const NavBar = ({ cartCounter }) => {
 	const { store, actions } = useContext(Context);
-
-	const [show, setShow] = useState(false);
-	const handleClose = () => {
-		setShow(false);
-	};
-	const handleShow = () => {
-		setShow(true);
-	};
 
 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	let totalUnits = store.totalUnits.reduce(reducer);
@@ -52,16 +42,17 @@ export const NavBar = ({ cartCounter }) => {
 					Higiene Personal
 				</Link>
 			</Navbar.Collapse>
-			<Button variant="light" onClick={handleShow} className="icon-button">
-				<img src={shopping} className="icon-cart" />
-				<Button
-					variant="danger"
-					className="cart-indicator"
-					style={{ display: store.cartItems.length >= 1 ? "inline" : "none" }}>
-					{cartCounter === totalUnits ? cartCounter : (cartCounter = totalUnits)}
+			<Link to="/Billing" onClick={() => window.scrollTo(0, 0)}>
+				<Button variant="light" className="icon-button">
+					<img src={shopping} className="icon-cart" />
+					<Button
+						variant="danger"
+						className="cart-indicator"
+						style={{ display: store.cartItems.length >= 1 ? "inline" : "none" }}>
+						{cartCounter === totalUnits ? cartCounter : (cartCounter = totalUnits)}
+					</Button>
 				</Button>
-			</Button>
-			<ShoppingCartModal show={show} handleClose={handleClose} />
+			</Link>
 		</Navbar>
 	);
 };

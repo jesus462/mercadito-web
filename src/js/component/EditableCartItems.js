@@ -26,7 +26,6 @@ export const EditableCartItems = ({ cartEditItem, setCartEdit, cartEdit }) => {
 		let filteredCartEdit = cartEdit.filter(filteredItem => {
 			return filteredItem.code !== cartEditItem.code;
 		});
-
 		setCartEdit(filteredCartEdit);
 	};
 

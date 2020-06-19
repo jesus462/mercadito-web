@@ -25,6 +25,16 @@ export const Billing = () => {
 
 	const [edit, setEdit] = useState(false);
 
+	let Array = ["a", "e"];
+
+	let prueba = Array.join("").toUpperCase();
+	let prueba2 = JSON.stringify(store.cartItems);
+	let cartItemMapped = store.cartItems.map(cartItem => {
+		return `Cod: ${cartItem.code} Cantidad: ${cartItem.units} Producto: ${cartItem.name} `;
+	});
+
+	let WhatsApp = `https://api.whatsapp.com/send?phone=584166332231&text=` + cartItemMapped;
+
 	const handleClickStartEdit = e => {
 		setCartEdit(store.cartItems);
 		setEdit(true);
@@ -33,6 +43,12 @@ export const Billing = () => {
 	const handleClickEndEdit = e => {
 		setEdit(false);
 		store.cartItems = cartEdit;
+
+		//With the actions taken after this comment i actualize the counter in the navbar of the shopping cart.
+		store.totalUnits = [0];
+		cartEdit.forEach(cartItem => {
+			store.totalUnits.push(cartItem.units);
+		});
 	};
 
 	let allSubTotalArray = [0];
@@ -162,6 +178,9 @@ export const Billing = () => {
 							<tbody>
 								{edit ? editableCartItems : cartItems}
 								<tr>
+									<td className="total-row" style={{ display: edit ? "none" : "table-cell" }} />
+									<td className="total-row" style={{ display: edit ? "none" : "table-cell" }} />
+									<td className="total-row" style={{ display: edit ? "none" : "table-cell" }} />
 									<td
 										colSpan="5"
 										className="total-row"
@@ -244,11 +263,9 @@ export const Billing = () => {
 			<div className="footer">
 				<div className="container-whatsapp">
 					<div>
-						<Link to="/Thanks">
-							<Button className="whatsapp-button">
-								<i className="fab fa-whatsapp icon" />
-							</Button>
-						</Link>
+						<Button className="whatsapp-button" href={WhatsApp}>
+							<i className="fab fa-whatsapp icon" />
+						</Button>
 					</div>
 				</div>
 			</div>

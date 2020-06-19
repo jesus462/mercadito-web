@@ -9,6 +9,7 @@ input[type=number] {
 }
 
 .full-card{
+    border: none;
     background-color: white;
     width: 180px;
     margin: 15px 10px;
@@ -24,6 +25,12 @@ input[type=number] {
         display: flex;
         justify-content: center;
 
+        .cart-indicator{
+            font-size: 13px;
+            position: absolute;
+            background-color: #0E0A56;
+            color: white;
+        }      
         .card-img{
             width: 180px;
             height: 180px;
@@ -41,7 +48,7 @@ input[type=number] {
     
     .card-body{
         padding: 5px;
-        
+    
         .name-section{
             font-size: 12px;
             height: 35px;
@@ -67,7 +74,8 @@ input[type=number] {
                 .input-button{
                     color: #0E0A56;
                     border-color: #0E0A56;
-                    font-size: 15px
+                    font-size: 15px;
+                    padding: 0 12px;
                 }
                 .input-text{
                     color: #0E0A56;
@@ -75,10 +83,12 @@ input[type=number] {
                     border-color: #0E0A56;
                     font-size: 15px;
                     padding: 0;
+                    height: 26px;
                 }
             }
         }
         .button-start{
+            padding: 0;
             width: 75%;
             background-color: white;
             font-size: 15px;
