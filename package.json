@@ -11,7 +11,7 @@
 		"deploy": "node deploy-to-github.js"
 	},
 	"author": {
-		"name": "Jesus",
+		"name": "Jesus Ponce",
 		"url": "https://github.com/jesus462"
 	},
 	"contributors": [
@@ -20,9 +20,6 @@
 		},
 		{
 			"name": "Ana Elisa"
-		},
-		{
-			"name": "Francisco Rubial"
 		}
 	],
 	"license": "ISC",

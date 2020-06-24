@@ -12,15 +12,6 @@ import "../../styles/views/Billing.scss";
 export const Billing = () => {
 	const { store, actions } = useContext(Context);
 
-	const [show, setShow] = useState(true);
-
-	const [deliveryInfo, setDeliveryInfo] = useState([]);
-	const [info, setInfo] = useState({
-		name: "",
-		direction: "",
-		phone: ""
-	});
-
 	const [cartEdit, setCartEdit] = useState([]);
 
 	const [edit, setEdit] = useState(false);
@@ -29,11 +20,14 @@ export const Billing = () => {
 
 	let prueba = Array.join("").toUpperCase();
 	let prueba2 = JSON.stringify(store.cartItems);
+	let allSubTotalArrayWhats = [0];
 	let cartItemMapped = store.cartItems.map(cartItem => {
-		return `Cod: ${cartItem.code} Cantidad: ${cartItem.units} Producto: ${cartItem.name} `;
+		cartItem.subTotal = cartItem.price * cartItem.units;
+		allSubTotalArrayWhats.push(cartItem.subTotal);
+		return `--${cartItem.units} x ${cartItem.name.toLowerCase()}(cod: ${cartItem.code}) subtotal: $${
+			cartItem.subTotal
+		}--`;
 	});
-
-	let WhatsApp = `https://api.whatsapp.com/send?phone=584166332231&text=` + cartItemMapped;
 
 	const handleClickStartEdit = e => {
 		setCartEdit(store.cartItems);
@@ -69,37 +63,6 @@ export const Billing = () => {
 		);
 	});
 
-	let deliveryInfoMap = deliveryInfo.map(infoMap => {
-		return (
-			<tfoot key={infoMap.id}>
-				<tr>
-					<th scope="row" className="cell-header">
-						Nombre:
-					</th>
-					<td colSpan="4" className="cell-data">
-						{infoMap.name}
-					</td>
-				</tr>
-				<tr>
-					<th scope="row" className="cell-header">
-						Dirección:
-					</th>
-					<td colSpan="4" className="cell-data">
-						{infoMap.direction}
-					</td>
-				</tr>
-				<tr>
-					<th scope="row" className="cell-header">
-						Teléfono:
-					</th>
-					<td colSpan="4" className="cell-data">
-						{infoMap.phone}
-					</td>
-				</tr>
-			</tfoot>
-		);
-	});
-
 	let editableCartItems = cartEdit.map(cartEditItem => {
 		return (
 			<EditableCartItems
@@ -111,30 +74,10 @@ export const Billing = () => {
 		);
 	});
 
-	const handleChangeInfo = e => {
-		setInfo({
-			...info /*esto hace una copia del estado y va agregando y guardando, agregando ...*/,
-			[e.target.name]: e.target.value
-		});
-	};
-
-	const handleClickAdding = () => {
-		deliveryInfo.push(info);
-		setShow(false);
-	};
-
-	const handleClickCorrection = () => {
-		setInfo({
-			name: "",
-			direction: "",
-			phone: ""
-		});
-		setDeliveryInfo([]);
-		setShow(true);
-	};
-
 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	let total = allSubTotalArray.reduce(reducer);
+
+	let WhatsApp = `https://api.whatsapp.com/send?phone=584166332231&text=` + cartItemMapped + `Total: $${total}`;
 
 	return (
 		<div>
@@ -189,7 +132,6 @@ export const Billing = () => {
 									</td>
 								</tr>
 							</tbody>
-							{deliveryInfoMap}
 						</Table>
 						<Button
 							variant="danger"
@@ -206,58 +148,6 @@ export const Billing = () => {
 							Guardar Cambios
 						</Button>
 					</div>
-				</div>
-				<div className="container-input">
-					<InputGroup className="mb-3 input-style" style={{ display: !show ? "none" : "inline" }}>
-						<FormControl
-							aria-describedby="basic-addon1"
-							className="input-text"
-							type="text"
-							value={info.name}
-							placeholder="Ingrese su nombre"
-							name="name"
-							onChange={handleChangeInfo}
-						/>
-					</InputGroup>
-					<InputGroup className="mb-3 input-style" style={{ display: !show ? "none" : "inline" }}>
-						<FormControl
-							aria-describedby="basic-addon1"
-							className="input-text"
-							type="text"
-							value={info.direction}
-							placeholder="Ingrese la dirección de envío"
-							name="direction"
-							onChange={handleChangeInfo}
-						/>
-					</InputGroup>
-					<InputGroup className="mb-3 input-style" style={{ display: !show ? "none" : "inline" }}>
-						<FormControl
-							aria-describedby="basic-addon1"
-							className="input-text"
-							type="number"
-							value={info.phone}
-							placeholder="Ingrese su teléfono"
-							name="phone"
-							onChange={handleChangeInfo}
-						/>
-					</InputGroup>
-					<Button
-						variant="dark"
-						className="inputs-button"
-						style={{ display: !show ? "none" : "inline" }}
-						onClick={handleClickAdding}>
-						Agregar a factura
-					</Button>
-					<p style={{ display: show ? "none" : "inline" }} className="correction-info">
-						Verifica tus datos, si hay algún error presiona el botón Corregir
-					</p>
-					<Button
-						variant="dark"
-						className="inputs-button"
-						style={{ display: show ? "none" : "inline" }}
-						onClick={handleClickCorrection}>
-						Corregir
-					</Button>
 				</div>
 			</div>
 			<div className="footer">
