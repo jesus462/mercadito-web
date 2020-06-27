@@ -18,15 +18,11 @@ export const Billing = () => {
 
 	let Array = ["a", "e"];
 
-	let prueba = Array.join("").toUpperCase();
-	let prueba2 = JSON.stringify(store.cartItems);
 	let allSubTotalArrayWhats = [0];
 	let cartItemMapped = store.cartItems.map(cartItem => {
 		cartItem.subTotal = cartItem.price * cartItem.units;
 		allSubTotalArrayWhats.push(cartItem.subTotal);
-		return `--${cartItem.units} x ${cartItem.name.toLowerCase()}(cod: ${cartItem.code}) subtotal: $${
-			cartItem.subTotal
-		}--`;
+		return `-${cartItem.units} x (cod: ${cartItem.code}) subtotal: $${cartItem.subTotal}-`;
 	});
 
 	const handleClickStartEdit = e => {
@@ -55,10 +51,10 @@ export const Billing = () => {
 			<tr key={cartItem.id}>
 				<td className="cell-data">{cartItem.code}</td>
 				<td className="cell-data">
-					<strong>{cartItem.units}</strong> x {cartItem.name}
+					<strong>{cartItem.units}</strong> x {cartItem.name.toLowerCase()}
 				</td>
 				<td className="cell-data">${cartItem.price}</td>
-				<td className="cell-data">${cartItem.subTotal}</td>
+				<td className="cell-data">${cartItem.subTotal.toFixed(2)}</td>
 			</tr>
 		);
 	});
@@ -87,16 +83,11 @@ export const Billing = () => {
 				</Link>
 			</div>
 			<p className="header-billing">Carrito de compras</p>
-			<div className="headerinfo-container">
-				<p className="header-info">Verifica y envía tu pedido a nuestro WhatsApp</p>
-				<p className="back">
-					<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
-						<strong>
-							<i className="fas fa-angle-left" /> Volver a Principal
-						</strong>
-					</Link>
-				</p>
-			</div>
+			<p className="back">
+				<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
+					<i className="fas fa-angle-left" /> Volver a Principal
+				</Link>
+			</p>
 
 			<div className="container">
 				<div className="billing-container">
@@ -128,20 +119,20 @@ export const Billing = () => {
 										colSpan="5"
 										className="total-row"
 										style={{ display: edit ? "none" : "table-cell" }}>
-										Total: ${total}
+										Total: ${total.toFixed(2)}
 									</td>
 								</tr>
 							</tbody>
 						</Table>
 						<Button
-							variant="danger"
+							variant="dark"
 							className="delete-button"
 							onClick={handleClickStartEdit}
 							style={{ display: store.cartItems.length < 1 || edit ? "none" : "inline" }}>
 							Editar Carrito
 						</Button>
 						<Button
-							variant="danger"
+							variant="dark"
 							className="delete-button"
 							onClick={handleClickEndEdit}
 							style={{ display: store.cartItems.length < 1 || !edit ? "none" : "inline" }}>
@@ -151,13 +142,12 @@ export const Billing = () => {
 				</div>
 			</div>
 			<div className="footer">
-				<div className="container-whatsapp">
-					<div>
-						<Button className="whatsapp-button" href={WhatsApp}>
-							<i className="fab fa-whatsapp icon" />
-						</Button>
-					</div>
-				</div>
+				<p className="header-info">
+					Envíanos tu pedido <i className="fas fa-arrow-right" />
+					<Button className="whatsapp-button" href={WhatsApp}>
+						<i className="fab fa-whatsapp icon" />
+					</Button>
+				</p>
 			</div>
 		</div>
 	);

@@ -1,5 +1,6 @@
 .full-navbar{
     background-color: white;
+    padding: 0;
     
     .logo{
         height: 40px;
@@ -28,7 +29,7 @@
 
         .icon-cart{
             margin: 0;
-            height: 34px;
+            height: 40px;
         }
         .cart-indicator{
             border-radius: 8.5px;
@@ -38,8 +39,8 @@
             box-shadow: none;
             width: 16px;
             position: absolute;
-            top: 37px;
-            right: 30px;
+            top: 30px;
+            right: 15px;
         }
     }
     .icon-button:hover{

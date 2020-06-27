@@ -11,6 +11,14 @@
         text-decoration: none;
         font-size: 10px;
     }
+    .link-button:hover{
+        background-color: black;
+        border-color: black;
+    }
+    .link-button:active{
+        background-color: black;
+        border-color: black;
+    }
 }
 
 @media (max-width: 875px) {
@@ -59,7 +67,7 @@
             font-size: 12px;
         }
     }
-}
+} 
 
 @media (max-width: 445px) {
     .links-bar{
