@@ -8,7 +8,7 @@ import "../../styles/component/MobileNavbar.scss";
 export const MobileNavbar = ({ currentPage }) => {
 	return (
 		<div className="links-bar">
-			<Link to="/Main/Promo" style={{ display: currentPage === "in demand" ? "none" : "inline" }}>
+			<Link to="/Main/Promo" style={{ display: currentPage === "promo" ? "none" : "inline" }}>
 				<Button onClick={() => window.scrollTo(0, 0)} variant="dark" className="link-button">
 					Promoción
 				</Button>
