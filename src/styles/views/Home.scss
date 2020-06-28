@@ -7,7 +7,7 @@
 
         .logo {
             height: 40px;
-            margin: 10px 0;
+            margin: 15px 0;
         }
     }
 
@@ -62,7 +62,7 @@
             width: 200px;
             height: 40px;
             font-size: 20px;
-            margin: 20px 0px;
+            margin: 15px 0px;
             border-radius: 30px;
             padding: 0;
             color: #FFFFFF;
@@ -86,9 +86,9 @@
     .container-general{
         
         .container-main{
-            height: 620px;
-            @media (max-width: 330px){
-                height: 490px;
+            height: 530px;
+            @media (max-width: 360px){
+                height: 460px;
             }
 
             h1{
@@ -108,13 +108,13 @@
                     margin-top: 15px;
                     width: 90%;
                     background-color: white;
-                    height: 90px;
+                    height: 80px;
                     display: flex;
                     align-items: center;
-                    margin: 15px 0;
-                    @media (max-width: 330px){
-                        height: 75px;
-                        margin: 10px 0;
+                    margin: 10px 0;
+                    @media (max-width: 360px){
+                        height: 70px;
+                        margin: 5px 0;
                     }
 
                     .steps-image{

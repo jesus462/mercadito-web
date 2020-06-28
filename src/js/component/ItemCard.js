@@ -35,7 +35,6 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 				store.totalUnits.push(unit);
 			}
 		}
-
 		setUnit(1);
 	};
 
@@ -43,7 +42,7 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 		<Card style={{ border: filterByCode.length > 0 ? "1px solid #0E0A56" : "none" }} className="full-card">
 			<div className="img-container">
 				<p style={{ display: filterByCode.length > 0 ? "inline" : "none" }} className="cart-indicator">
-					Has agregado el producto al carrito
+					Tiene {filterByCode.length > 0 ? item.units : (item.units = 0)} en el carrito
 				</p>
 				<Image cloudName="duu99bl6f" publicId={item.code} className="card-img" />
 			</div>
