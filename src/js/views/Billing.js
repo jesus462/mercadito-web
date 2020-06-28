@@ -15,13 +15,11 @@ export const Billing = () => {
 
 	const [edit, setEdit] = useState(false);
 
-	let Array = ["a", "e"];
-
 	let allSubTotalArrayWhats = [0];
 	let cartItemMapped = store.cartItems.map(cartItem => {
 		cartItem.subTotal = cartItem.price * cartItem.units;
 		allSubTotalArrayWhats.push(cartItem.subTotal);
-		return `-${cartItem.units} x (cod: ${cartItem.code}) subtotal: $${cartItem.subTotal}-`;
+		return `-${cartItem.units} x (cod: ${cartItem.code})-`;
 	});
 
 	const handleClickStartEdit = e => {
@@ -96,16 +94,16 @@ export const Billing = () => {
 							<thead>
 								<tr>
 									<th className="cell-header" style={{ display: !edit ? "none" : "table-cell" }}>
-										Cantidad
+										CANTIDAD
 									</th>
 									<th className="cell-header" style={{ display: edit ? "none" : "table-cell" }}>
-										Código
+										CÓDIGO
 									</th>
-									<th className="cell-header">Descripción</th>
+									<th className="cell-header">DESCRIPCIÓN</th>
 									<th className="cell-header" style={{ display: edit ? "none" : "table-cell" }}>
-										P.v.p.
+										P.V.P.
 									</th>
-									<th className="cell-header">Subtotal</th>
+									<th className="cell-header">SUBTOTAL</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -118,7 +116,7 @@ export const Billing = () => {
 										colSpan="5"
 										className="total-row"
 										style={{ display: edit ? "none" : "table-cell" }}>
-										Total: ${total.toFixed(2)}
+										TOTAL: ${total.toFixed(2)}
 									</td>
 								</tr>
 							</tbody>

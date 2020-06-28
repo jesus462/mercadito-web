@@ -14,7 +14,7 @@ export const Home = () => (
 		<div className="container-main">
 			<header>
 				<h1>Catálogo Online</h1>
-				<p className="header-words">Pasos a seguir</p>
+				<p className="header-words">Pasos a seguir:</p>
 			</header>
 
 			<main>
