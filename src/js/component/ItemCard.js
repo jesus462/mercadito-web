@@ -4,8 +4,6 @@ import { Button, Card, InputGroup, FormControl } from "react-bootstrap";
 import { Image } from "cloudinary-react";
 import PropTypes from "prop-types";
 
-import holder from "../../img/holder.png";
-
 import "../../styles/component/ItemCard.scss";
 
 export const ItemCard = ({ item, cartCounter, setCartCounter }) => {

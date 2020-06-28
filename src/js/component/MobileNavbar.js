@@ -8,9 +8,9 @@ import "../../styles/component/MobileNavbar.scss";
 export const MobileNavbar = ({ currentPage }) => {
 	return (
 		<div className="links-bar">
-			<Link to="/Main/Populares" style={{ display: currentPage === "in demand" ? "none" : "inline" }}>
+			<Link to="/Main/Promo" style={{ display: currentPage === "in demand" ? "none" : "inline" }}>
 				<Button onClick={() => window.scrollTo(0, 0)} variant="dark" className="link-button">
-					Populares
+					Promoción
 				</Button>
 			</Link>
 			<Link to="/Main/Snacks" style={{ display: currentPage === "snacks" ? "none" : "inline" }}>
@@ -21,11 +21,6 @@ export const MobileNavbar = ({ currentPage }) => {
 			<Link to="/Main/Alimentos" style={{ display: currentPage === "food" ? "none" : "inline" }}>
 				<Button onClick={() => window.scrollTo(0, 0)} variant="dark" className="link-button">
 					Alimentos
-				</Button>
-			</Link>
-			<Link to="/Main/Bebidas" style={{ display: currentPage === "beverages" ? "none" : "inline" }}>
-				<Button onClick={() => window.scrollTo(0, 0)} variant="dark" className="link-button">
-					Bebidas
 				</Button>
 			</Link>
 			<Link to="/Main/Limpieza" style={{ display: currentPage === "cleaning" ? "none" : "inline" }}>

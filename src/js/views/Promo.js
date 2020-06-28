@@ -2,23 +2,22 @@ import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Image } from "cloudinary-react";
 
 import { NavBar } from "../component/NavBar";
 import { ItemCard } from "../component/ItemCard";
 import { MobileNavbar } from "../component/MobileNavbar";
 
-import searchIcon from "../../img/search.png";
+import "../../styles/views/Promo.scss";
 
-import "../../styles/views/InDemandItems.scss";
-
-export const InDemandItems = () => {
+export const Promo = () => {
 	const { store, actions } = useContext(Context);
 
 	const [search, setSearch] = useState("");
 
 	const [cartCounter, setCartCounter] = useState(0);
 
-	const currentPage = "in demand";
+	const currentPage = "promo";
 
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
@@ -26,7 +25,7 @@ export const InDemandItems = () => {
 
 	let filteredInDemandItems = store.items.filter(item => {
 		if (search.length < 1) {
-			return item.type.toLowerCase() == "populares";
+			return item.type.toLowerCase() == "promo";
 		} else {
 			return item.name.toLowerCase().indexOf(search.toLowerCase()) == !-1;
 		}
@@ -52,14 +51,14 @@ export const InDemandItems = () => {
 						/>
 						<InputGroup.Append>
 							<Button variant="light" className="button-search">
-								<img src={searchIcon} className="icon" />
+								<Image cloudName="duu99bl6f" publicId="search" className="icon" />
 							</Button>
 						</InputGroup.Append>
 					</InputGroup>
 				</div>
 			</div>
 			<MobileNavbar currentPage={currentPage} />
-			<p className="section">Populares</p>
+			<p className="section">Promociones</p>
 			<p className="back">
 				<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
 					<i className="fas fa-angle-left" /> Volver a Principal

@@ -1,18 +1,14 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-import logo from "../../img/logo.png";
-import carritoDeCompras from "../../img/carrito-de-compras.jpg";
-import bodegon from "../../img/bodegon.jpg";
-import factura from "../../img/factura.png";
+import { Image } from "cloudinary-react";
 
 import "../../styles/views/Home.scss";
 
 export const Home = () => (
 	<div className="container-general">
 		<div className="container-logo">
-			<img src={logo} className="logo" />
+			<Image cloudName="duu99bl6f" publicId="logo" className="logo" />
 		</div>
 
 		<div className="container-main">
@@ -23,15 +19,15 @@ export const Home = () => (
 
 			<main>
 				<div className="container-img">
-					<img className="steps-image" src={bodegon} />
+					<Image cloudName="duu99bl6f" publicId="bodegon" className="steps-image" />
 					<p>Elige los productos de tu preferencia</p>
 				</div>
 				<div className="container-img">
-					<img className="steps-image" src={carritoDeCompras} />
+					<Image cloudName="duu99bl6f" publicId="carrito_de_compras" className="steps-image" />
 					<p>Ingresa en tu carrito</p>
 				</div>
 				<div className="container-img">
-					<img className="steps-image" src={factura} />
+					<Image cloudName="duu99bl6f" publicId="factura" className="steps-image" />
 					<p>Envía tu pedido a nuestro whatsapp</p>
 				</div>
 			</main>

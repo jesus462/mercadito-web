@@ -1,12 +1,11 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { Image } from "cloudinary-react";
 
 import { NavBar } from "../component/NavBar";
 import { ItemCard } from "../component/ItemCard";
 import { MobileNavbar } from "../component/MobileNavbar";
-
-import searchIcon from "../../img/search.png";
 
 import "../../styles/views/Main.scss";
 
@@ -45,7 +44,7 @@ export const Main = () => {
 						/>
 						<InputGroup.Append>
 							<Button variant="light" className="button-search">
-								<img src={searchIcon} className="icon" />
+								<Image cloudName="duu99bl6f" publicId="search" className="icon" />
 							</Button>
 						</InputGroup.Append>
 					</InputGroup>

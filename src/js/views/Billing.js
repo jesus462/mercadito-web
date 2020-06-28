@@ -1,11 +1,10 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Context } from "../store/Context";
-import { Button, Table, InputGroup, FormControl } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Image } from "cloudinary-react";
 
 import { EditableCartItems } from "../component/EditableCartItems";
-
-import logo from "../../img/logo.png";
 
 import "../../styles/views/Billing.scss";
 
@@ -79,7 +78,7 @@ export const Billing = () => {
 		<div>
 			<div className="container-logo">
 				<Link to="/Main">
-					<img src={logo} className="logo" />
+					<Image cloudName="duu99bl6f" publicId="logo" className="logo" />
 				</Link>
 			</div>
 			<p className="header-billing">Carrito de compras</p>
