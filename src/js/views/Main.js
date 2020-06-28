@@ -21,7 +21,7 @@ export const Main = () => {
 	};
 
 	let filteredItems = store.items.filter(item => {
-		return item.name.toLowerCase().indexOf(search.toLowerCase()) == !-1;
+		return item.name.toLowerCase().includes(search.toLowerCase());
 	});
 
 	let itemCards = filteredItems.map(item => {

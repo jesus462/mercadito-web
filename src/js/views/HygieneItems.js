@@ -27,7 +27,7 @@ export const HygieneItems = () => {
 		if (search.length < 1) {
 			return item.type.toLowerCase() == "higiene";
 		} else {
-			return item.name.toLowerCase().indexOf(search.toLowerCase()) == !-1;
+			return item.name.toLowerCase().includes(search.toLowerCase());
 		}
 	});
 

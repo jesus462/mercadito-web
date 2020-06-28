@@ -19,7 +19,7 @@ export const Billing = () => {
 	let cartItemMapped = store.cartItems.map(cartItem => {
 		cartItem.subTotal = cartItem.price * cartItem.units;
 		allSubTotalArrayWhats.push(cartItem.subTotal);
-		return `-${cartItem.units} x (cod: ${cartItem.code})-`;
+		return ` (cod: ${cartItem.code}) x ${cartItem.units}`;
 	});
 
 	const handleClickStartEdit = e => {
@@ -70,7 +70,7 @@ export const Billing = () => {
 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	let total = allSubTotalArray.reduce(reducer);
 
-	let WhatsApp = `https://api.whatsapp.com/send?phone=584166332231&text=` + cartItemMapped + `Total: $${total}`;
+	let WhatsApp = `https://api.whatsapp.com/send?phone=584166332231&text=` + cartItemMapped + ` -- Total: $${total}`;
 
 	return (
 		<div>

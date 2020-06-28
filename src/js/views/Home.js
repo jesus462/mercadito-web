@@ -20,15 +20,15 @@ export const Home = () => (
 			<main>
 				<div className="container-img">
 					<Image cloudName="duu99bl6f" publicId="bodegon" className="steps-image" />
-					<p>Elige los productos de tu preferencia</p>
+					<p>1. Elige los productos de tu preferencia</p>
 				</div>
 				<div className="container-img">
 					<Image cloudName="duu99bl6f" publicId="carrito_de_compras" className="steps-image" />
-					<p>Ingresa en tu carrito</p>
+					<p>2. Ingresa en tu carrito</p>
 				</div>
 				<div className="container-img">
 					<Image cloudName="duu99bl6f" publicId="factura" className="steps-image" />
-					<p>Envía tu pedido a nuestro whatsapp</p>
+					<p>3. Envía tu pedido a nuestro WhatsApp</p>
 				</div>
 			</main>
 

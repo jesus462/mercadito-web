@@ -7,7 +7,7 @@
 
         .logo {
             height: 40px;
-            margin: 15px 0;
+            margin: 10px 0;
         }
     }
 
@@ -86,9 +86,19 @@
     .container-general{
         
         .container-main{
+            height: 620px;
+            @media (max-width: 330px){
+                height: 490px;
+            }
 
             h1{
                 font-size: 50px;
+                @media (max-width: 430px) {
+                    font-size: 40px;
+                }
+                @media (max-width: 345px) {
+                    font-size: 37px;
+                }
             }
             main{
                 flex-direction: column;
@@ -98,9 +108,14 @@
                     margin-top: 15px;
                     width: 90%;
                     background-color: white;
-                    height: 65px;
+                    height: 90px;
                     display: flex;
                     align-items: center;
+                    margin: 15px 0;
+                    @media (max-width: 330px){
+                        height: 75px;
+                        margin: 10px 0;
+                    }
 
                     .steps-image{
                         display: none;
