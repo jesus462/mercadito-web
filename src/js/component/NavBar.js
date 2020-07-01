@@ -17,7 +17,7 @@ export const NavBar = ({ cartCounter }) => {
 		<Navbar className="full-navbar" expand="sm">
 			<Navbar.Brand>
 				<Link to="/Main" onClick={() => window.scrollTo(0, 0)}>
-					<Image cloudName="duu99bl6f" publicId="logo" className="logo" />
+					<Image cloudName={store.cloudinary.userName} publicId="logo" className="logo" />
 				</Link>
 			</Navbar.Brand>
 			<Navbar.Collapse className="links-container" id="basic-navbar-nav">
@@ -39,7 +39,7 @@ export const NavBar = ({ cartCounter }) => {
 			</Navbar.Collapse>
 			<Link to="/Billing" onClick={() => window.scrollTo(0, 0)}>
 				<Button variant="light" className="icon-button">
-					<Image cloudName="duu99bl6f" publicId="shopping" className="icon-cart" />
+					<Image cloudName={store.cloudinary.userName} publicId="shopping" className="icon-cart" />
 					<Button
 						variant="danger"
 						className="cart-indicator"

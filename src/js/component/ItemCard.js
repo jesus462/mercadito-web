@@ -44,7 +44,7 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 				<p style={{ display: filterByCode.length > 0 ? "inline" : "none" }} className="cart-indicator">
 					Tiene {filterByCode.length > 0 ? item.units : (item.units = 0)} en el carrito
 				</p>
-				<Image cloudName="duu99bl6f" publicId={item.code} className="card-img" />
+				<Image cloudName={store.cloudinary.userName} publicId={item.code} className="card-img" />
 			</div>
 			<Card.Body className="card-body">
 				<Card.Title className="name-section">{item.name}</Card.Title>

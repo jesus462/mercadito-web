@@ -7,7 +7,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
-
+ 
 .full-card{
     background-color: white;
     width: 180px;
@@ -78,6 +78,14 @@ input[type=number] {
                     font-size: 15px;
                     padding: 0 12px;
                     height: 26px;
+                    background-color: white;
+                    box-shadow: none;
+                }
+                .input-button:active{
+                    background-color: #CECBFF;
+                }
+                .input-button:hover{
+                    background-color: #CECBFF;
                 }
                 .input-text{
                     color: #0E0A56;
@@ -86,6 +94,7 @@ input[type=number] {
                     font-size: 15px;
                     padding: 0;
                     height: 26px;
+                    box-shadow: none;
                 }
             }
         }
@@ -99,9 +108,16 @@ input[type=number] {
             border-color: #0E0A56;
             border-width: 2px;
             margin-bottom: 5px;
+            box-shadow: none;
             @media (max-width: 340px){
                 font-size: 13px;
             }
+        }
+        .button-start:active{
+            background-color: #CECBFF;
+        }
+        .button-start:hover{
+            background-color: #CECBFF;
         }
     }   
 }

@@ -15,10 +15,7 @@ export const Billing = () => {
 
 	const [edit, setEdit] = useState(false);
 
-	let allSubTotalArrayWhats = [0];
 	let cartItemMapped = store.cartItems.map(cartItem => {
-		cartItem.subTotal = cartItem.price * cartItem.units;
-		allSubTotalArrayWhats.push(cartItem.subTotal);
 		return ` (cod: ${cartItem.code}) x ${cartItem.units}`;
 	});
 
@@ -73,10 +70,10 @@ export const Billing = () => {
 	let WhatsApp = `https://api.whatsapp.com/send?phone=584166332231&text=` + cartItemMapped + ` -- Total: $${total}`;
 
 	return (
-		<div>
+		<div className="container-whole">
 			<div className="container-logo">
 				<Link to="/Main">
-					<Image cloudName="duu99bl6f" publicId="logo" className="logo" />
+					<Image cloudName={store.cloudinary.userName} publicId="logo" className="logo" />
 				</Link>
 			</div>
 			<p className="header-billing">Carrito de compras</p>

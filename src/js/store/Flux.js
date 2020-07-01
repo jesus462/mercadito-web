@@ -186,7 +186,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			cartItems: [],
 
-			totalUnits: [0]
+			totalUnits: [0],
+
+			cloudinary: { userName: "duu99bl6f" }
 		},
 		actions: {
 			// Use getActions to call a function within a fuction

@@ -36,7 +36,7 @@ export const CleaningItems = () => {
 	});
 
 	return (
-		<div>
+		<div className="container-whole">
 			<div className="sticky-top">
 				<NavBar cartCounter={cartCounter} />
 				<div className="search-bar">
@@ -51,7 +51,7 @@ export const CleaningItems = () => {
 						/>
 						<InputGroup.Append>
 							<Button variant="light" className="button-search">
-								<Image cloudName="duu99bl6f" publicId="search" className="icon" />
+								<Image cloudName={store.cloudinary.userName} publicId="search" className="icon" />
 							</Button>
 						</InputGroup.Append>
 					</InputGroup>

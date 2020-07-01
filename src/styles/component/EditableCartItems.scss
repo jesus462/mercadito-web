@@ -18,8 +18,8 @@
         padding: 0;
     }
     .full-input{
-        vertical-align: middle;
-        text-align: center;
+        display: flex;
+        justify-content: center;
         padding: 0;
         margin: 0;
 
@@ -31,20 +31,26 @@
             .input-button{
                 color: #0E0A56;
                 border-color: #0E0A56;
-                height: 40px;
-                width: 25px;
                 font-size: 15px;
-                padding: 0;
+                padding: 0 10px;
+                height: 26px;
+                background-color: white;
+                box-shadow: none;
+            }
+            .input-button:active{
+                background-color: #CECBFF;
+            }
+            .input-button:hover{
+                background-color: #CECBFF;
             }
             .input-text{
                 color: #0E0A56;
-                text-align: left;
-                border-color: #0E0A56;
-                height: 40px;
-                width: 20px;
                 text-align: center;
+                border-color: #0E0A56;
                 font-size: 15px;
                 padding: 0;
+                height: 26px;
+                box-shadow: none;
             }
         }
     }
