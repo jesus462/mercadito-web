@@ -51,7 +51,7 @@ export const FoodItems = () => {
 						/>
 						<InputGroup.Append>
 							<Button variant="light" className="button-search">
-								<Image cloudName={store.cloudinary.userName} publicId="search" className="icon" />
+								<Image cloudName={store.cloudinary.userName} publicId="search_logo" className="icon" />
 							</Button>
 						</InputGroup.Append>
 					</InputGroup>

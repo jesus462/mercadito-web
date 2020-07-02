@@ -25,7 +25,7 @@ export const Promo = () => {
 
 	let filteredInDemandItems = store.items.filter(item => {
 		if (search.length < 1) {
-			return item.type.toLowerCase() == "promo";
+			return item.type.toLowerCase() == "promocion";
 		} else {
 			return item.name.toLowerCase().includes(search.toLowerCase());
 		}
@@ -51,7 +51,7 @@ export const Promo = () => {
 						/>
 						<InputGroup.Append>
 							<Button variant="light" className="button-search">
-								<Image cloudName={store.cloudinary.userName} publicId="search" className="icon" />
+								<Image cloudName={store.cloudinary.userName} publicId="search_logo" className="icon" />
 							</Button>
 						</InputGroup.Append>
 					</InputGroup>

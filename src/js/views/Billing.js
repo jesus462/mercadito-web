@@ -67,13 +67,13 @@ export const Billing = () => {
 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	let total = allSubTotalArray.reduce(reducer);
 
-	let WhatsApp = `https://api.whatsapp.com/send?phone=584166332231&text=` + cartItemMapped + ` -- Total: $${total}`;
+	let WhatsApp = `https://api.whatsapp.com/send?phone=584141525412&text=` + cartItemMapped + ` -- Total: $${total}`;
 
 	return (
 		<div className="container-whole">
 			<div className="container-logo">
 				<Link to="/Main">
-					<Image cloudName={store.cloudinary.userName} publicId="logo" className="logo" />
+					<Image cloudName={store.cloudinary.userName} publicId="logo_m" className="logo" />
 				</Link>
 			</div>
 			<p className="header-billing">Carrito de compras</p>

@@ -17,7 +17,7 @@ export const NavBar = ({ cartCounter }) => {
 		<Navbar className="full-navbar" expand="sm">
 			<Navbar.Brand>
 				<Link to="/Main" onClick={() => window.scrollTo(0, 0)}>
-					<Image cloudName={store.cloudinary.userName} publicId="logo" className="logo" />
+					<Image cloudName={store.cloudinary.userName} publicId="logo_m" className="logo" />
 				</Link>
 			</Navbar.Brand>
 			<Navbar.Collapse className="links-container" id="basic-navbar-nav">
@@ -34,7 +34,7 @@ export const NavBar = ({ cartCounter }) => {
 					Limpieza
 				</Link>
 				<Link className="nav-links" to="/Main/Higiene" onClick={() => window.scrollTo(0, 0)}>
-					Higiene Personal
+					Cuidado Personal
 				</Link>
 			</Navbar.Collapse>
 			<Link to="/Billing">

@@ -12,7 +12,7 @@ export const Home = () => {
 	return (
 		<div className="container-general">
 			<div className="container-logo">
-				<Image cloudName={store.cloudinary.userName} publicId="logo" className="logo" />
+				<Image cloudName={store.cloudinary.userName} publicId="logo_m" className="logo" />
 			</div>
 
 			<div className="container-main">
