@@ -58,11 +58,13 @@ div{
                         display: flex;
                         align-items: center;
                         height: 20%;
+                        width: 100%;
                         p {
                             font-size: 20px;
                             color: #151517;
-                            text-align: center;
                             margin: 0;
+                            padding: 5px;
+                            width: 100%;
                         }
                     }
                 }
@@ -99,7 +101,7 @@ div{
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 770px) {
     div{
         height: 100%;
 
@@ -110,7 +112,7 @@ div{
                 height: 12%;
             }
             .container-main{
-                height: 88%;
+                height: 85%;
 
                 
                 header{

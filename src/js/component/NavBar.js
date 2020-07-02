@@ -37,8 +37,8 @@ export const NavBar = ({ cartCounter }) => {
 					Higiene Personal
 				</Link>
 			</Navbar.Collapse>
-			<Link to="/Billing" onClick={() => window.scrollTo(0, 0)}>
-				<Button variant="light" className="icon-button">
+			<Link to="/Billing">
+				<Button variant="light" className="icon-button" onClick={() => window.scrollTo(0, 0)}>
 					<Image cloudName={store.cloudinary.userName} publicId="shopping" className="icon-cart" />
 					<Button
 						variant="danger"
