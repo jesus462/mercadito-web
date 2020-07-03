@@ -21,6 +21,7 @@ export const FoodItems = () => {
 
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
+		window.scrollTo(0, 0);
 	};
 
 	let filteredFoodItems = store.items.filter(item => {

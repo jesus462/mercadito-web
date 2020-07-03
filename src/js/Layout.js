@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, HashRouter } from "react-router-dom";
 
 import { Home } from "./views/Home";
 import { Main } from "./views/Main";
@@ -19,7 +19,7 @@ export const Layout = () => {
 
 	return (
 		<div className="d-flex flex-column h-100">
-			<BrowserRouter>
+			<HashRouter>
 				<div>
 					<Switch>
 						<Route exact path="/" component={Home} />
@@ -33,7 +33,7 @@ export const Layout = () => {
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 				</div>
-			</BrowserRouter>
+			</HashRouter>
 		</div>
 	);
 };

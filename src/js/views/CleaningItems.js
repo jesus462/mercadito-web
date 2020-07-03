@@ -21,6 +21,7 @@ export const CleaningItems = () => {
 
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
+		window.scrollTo(0, 0);
 	};
 
 	let filteredCleaningItems = store.items.filter(item => {
