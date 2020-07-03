@@ -17,7 +17,7 @@ export const HygieneItems = () => {
 
 	const [cartCounter, setCartCounter] = useState(0);
 
-	const currentPage = "hygiene";
+	const currentPage = "care";
 
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
@@ -25,7 +25,7 @@ export const HygieneItems = () => {
 
 	let filteredHygieneItems = store.items.filter(item => {
 		if (search.length < 1) {
-			return item.type.toLowerCase() == "higiene";
+			return item.type.toLowerCase() == "cuidado personal";
 		} else {
 			return item.name.toLowerCase().includes(search.toLowerCase());
 		}
@@ -58,7 +58,7 @@ export const HygieneItems = () => {
 				</div>
 			</div>
 			<MobileNavbar currentPage={currentPage} />
-			<p className="section">Higiene Personal</p>
+			<p className="section">Cuidado Personal</p>
 			<p className="back">
 				<Link className="text" to="/Main" onClick={() => window.scrollTo(0, 0)}>
 					<i className="fas fa-angle-left" /> Volver a Principal

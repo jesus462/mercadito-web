@@ -28,9 +28,9 @@ export const MobileNavbar = ({ currentPage }) => {
 					Limpieza
 				</Button>
 			</Link>
-			<Link to="/Main/Higiene" style={{ display: currentPage === "hygiene" ? "none" : "inline" }}>
+			<Link to="/Main/Higiene" style={{ display: currentPage === "care" ? "none" : "inline" }}>
 				<Button onClick={() => window.scrollTo(0, 0)} variant="dark" className="link-button">
-					Higiene Personal
+					Cuidado Personal
 				</Button>
 			</Link>
 		</div>

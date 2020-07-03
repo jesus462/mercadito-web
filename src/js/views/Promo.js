@@ -25,7 +25,7 @@ export const Promo = () => {
 
 	let filteredInDemandItems = store.items.filter(item => {
 		if (search.length < 1) {
-			return item.type.toLowerCase() == "promo";
+			return item.type.toLowerCase() == "promocion";
 		} else {
 			return item.name.toLowerCase().includes(search.toLowerCase());
 		}

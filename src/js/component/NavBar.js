@@ -34,7 +34,7 @@ export const NavBar = ({ cartCounter }) => {
 					Limpieza
 				</Link>
 				<Link className="nav-links" to="/Main/Higiene" onClick={() => window.scrollTo(0, 0)}>
-					Higiene Personal
+					Cuidado Personal
 				</Link>
 			</Navbar.Collapse>
 			<Link to="/Billing">
