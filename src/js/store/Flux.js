@@ -3,10 +3,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			items: [
 				{
+					code: "2023",
+					name: "CHOCOLATE MILKA AVELLANA 100GR",
+					price: "3.00",
+					type: "SNACKS"
+				},
+				{
+					code: "448",
+					name: "DESODORANTE AXE MEN DARK TEMPTATION 150 ML",
+					price: "4.00",
+					type: "PROMOCION"
+				},
+				{
 					code: "1086",
 					name: "CHIA EARTHLY CHOICE ORGANIC 1.36 KG",
 					price: "15.00",
 					type: "ALIMENTOS"
+				},
+				{
+					code: "735",
+					name: " GEL INTIMO FEMININE XTRA CARE CLEAN & FRESH 266 ML",
+					price: "2.50",
+					type: "CUIDADO PERSONAL"
 				},
 				{
 					code: "2000",
@@ -537,12 +555,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					type: "LIMPIEZA"
 				},
 				{
-					code: "1059",
-					name: "LIPTON ICED TEA LIMON 2.54 KG",
-					price: "15.50",
-					type: "ALIMENTOS"
-				},
-				{
 					code: "902",
 					name: "LISTERINE 250 ML ZERO",
 					price: "5.00",
@@ -705,6 +717,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					type: "SNACKS"
 				},
 				{
+					code: "004",
+					name: "NUTELLA  950 GR 2 PACK",
+					price: "21.50",
+					type: "SNACKS"
+				},
+				{
 					code: "025",
 					name: "NUTELLA 3KG",
 					price: "30.00",
@@ -720,13 +738,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					code: "470",
 					name: "PAQUETE DE PILAS PANASONIC AA",
 					price: "2.00",
-					type: ""
+					type: "PROMOCION"
 				},
 				{
 					code: "490",
 					name: "PAQUETE DE PILAS PANASONIC AAA",
 					price: "2.00",
-					type: ""
+					type: "PROMOCION"
 				},
 				{
 					code: "177",
@@ -778,8 +796,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					code: "133",
-					name: "SHAMPOO ALBERTO VO5 EXTRA BODY 6 X 370ML",
-					price: "13.50",
+					name: "SHAMPOO ALBERTO VO5 EXTRA BODY 370ML",
+					price: "2.50",
 					type: "CUIDADO PERSONAL"
 				},
 				{
@@ -932,25 +950,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
 			}
 		}
 	};

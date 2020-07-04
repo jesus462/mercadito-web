@@ -21,6 +21,7 @@ export const Promo = () => {
 
 	const handleChangeSearch = e => {
 		setSearch(e.target.value);
+		window.scrollTo(0, 0);
 	};
 
 	let filteredInDemandItems = store.items.filter(item => {
