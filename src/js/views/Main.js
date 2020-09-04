@@ -29,6 +29,11 @@ export const Main = () => {
 		return <ItemCard key={item.id} item={item} cartCounter={cartCounter} setCartCounter={setCartCounter} />;
 	});
 
+	// disable the secondary mouse button
+	document.oncontextmenu = function() {
+		return false;
+	};
+
 	return (
 		<div className="container-whole">
 			<div className="sticky-top">

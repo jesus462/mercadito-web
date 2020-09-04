@@ -26,7 +26,9 @@ export const CleaningItems = () => {
 
 	let filteredCleaningItems = store.items.filter(item => {
 		if (search.length < 1) {
-			return item.type.toLowerCase() == "limpieza";
+			if (typeof item.type === "string") {
+				return item.type.toLowerCase() == "limpieza";
+			}
 		} else {
 			return item.name.toLowerCase().includes(search.toLowerCase());
 		}

@@ -19,7 +19,7 @@ export const Layout = () => {
 
 	return (
 		<div className="d-flex flex-column h-100">
-			<HashRouter>
+			<BrowserRouter>
 				<div>
 					<Switch>
 						<Route exact path="/" component={Home} />
@@ -33,7 +33,7 @@ export const Layout = () => {
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 				</div>
-			</HashRouter>
+			</BrowserRouter>
 		</div>
 	);
 };

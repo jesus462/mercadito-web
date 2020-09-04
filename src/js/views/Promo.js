@@ -9,6 +9,7 @@ import { ItemCard } from "../component/ItemCard";
 import { MobileNavbar } from "../component/MobileNavbar";
 
 import "../../styles/views/Promo.scss";
+import { type } from "jquery";
 
 export const Promo = () => {
 	const { store, actions } = useContext(Context);
@@ -26,7 +27,9 @@ export const Promo = () => {
 
 	let filteredInDemandItems = store.items.filter(item => {
 		if (search.length < 1) {
-			return item.type.toLowerCase() == "promocion";
+			if (typeof item.type === "string") {
+				return item.type.toLowerCase() == "promocion";
+			}
 		} else {
 			return item.name.toLowerCase().includes(search.toLowerCase());
 		}

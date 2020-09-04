@@ -143,6 +143,10 @@ export const Billing = () => {
 					</Button>
 				</p>
 			</div>
+			<footer className="watermark ">
+				<span className="watermark-text">made by </span>
+				<Image cloudName={store.cloudinary.userName} publicId="logo_asiesdigital" className="logo-watermark" />
+			</footer>
 		</div>
 	);
 };

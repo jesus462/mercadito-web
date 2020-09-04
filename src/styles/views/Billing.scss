@@ -185,4 +185,23 @@ input[type=number] {
             }
         } 
     }
+
+    .watermark{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        .watermark-text{
+            font-size: 15px;
+            padding-top: 30px;
+            margin-right: 5px;
+        }
+        .logo-watermark{
+            height: 50px;
+            margin-right: 10px;
+        }
+    }
 }

@@ -26,7 +26,9 @@ export const FoodItems = () => {
 
 	let filteredFoodItems = store.items.filter(item => {
 		if (search.length < 1) {
-			return item.type.toLowerCase() == "alimentos";
+			if (typeof item.type === "string") {
+				return item.type.toLowerCase() == "alimentos";
+			}
 		} else {
 			return item.name.toLowerCase().includes(search.toLowerCase());
 		}

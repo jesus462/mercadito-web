@@ -7,8 +7,9 @@ import { Image } from "cloudinary-react";
 
 import "../../styles/component/NavBar.scss";
 
-export const NavBar = ({ cartCounter }) => {
+export const NavBar = (/*{ cartCounter }*/) => {
 	const { store, actions } = useContext(Context);
+	const [cartCounter, setCartCounter] = useState(0);
 
 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	let totalUnits = store.totalUnits.reduce(reducer);
@@ -44,14 +45,15 @@ export const NavBar = ({ cartCounter }) => {
 						variant="danger"
 						className="cart-indicator"
 						style={{ display: store.cartItems.length >= 1 ? "inline" : "none" }}>
-						{cartCounter === totalUnits ? cartCounter : (cartCounter = totalUnits)}
+						{cartCounter === totalUnits ? cartCounter : setCartCounter(totalUnits)}
 					</Button>
 				</Button>
 			</Link>
 		</Navbar>
 	);
 };
-
+/*
 NavBar.propTypes = {
 	cartCounter: PropTypes.number
 };
+*/
