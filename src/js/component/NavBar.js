@@ -1,15 +1,19 @@
-import React, { Component, useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/Context";
-import { Navbar, Nav, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import { Navbar, Button } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 import { Image } from "cloudinary-react";
 
 import "../../styles/component/NavBar.scss";
 
-export const NavBar = (/*{ cartCounter }*/) => {
+export const NavBar = () => {
 	const { store, actions } = useContext(Context);
 	const [cartCounter, setCartCounter] = useState(0);
+
+	const location = useLocation();
+	const currentPath = location.pathname;
+
+	console.log(currentPath);
 
 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	let totalUnits = store.totalUnits.reduce(reducer);
@@ -52,8 +56,3 @@ export const NavBar = (/*{ cartCounter }*/) => {
 		</Navbar>
 	);
 };
-/*
-NavBar.propTypes = {
-	cartCounter: PropTypes.number
-};
-*/

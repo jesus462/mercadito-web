@@ -14,7 +14,7 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 	const [unitIndicator, setUnitIndicator] = useState(0);
 
 	let filterByCode = store.cartItems.filter(cartItem => {
-		return cartItem.code === item.code;
+		return cartItem.COD === item.COD;
 	});
 
 	const handleClickAddItem = e => {
@@ -44,11 +44,15 @@ export const ItemCard = ({ item, cartCounter, setCartCounter }) => {
 				<p style={{ display: filterByCode.length > 0 ? "inline" : "none" }} className="cart-indicator">
 					Tiene {filterByCode.length > 0 ? item.units : (item.units = 0)} en el carrito
 				</p>
-				<Image cloudName={store.cloudinary.userName} publicId={item.code} className="card-img" />
+				<Image
+					cloudName={store.cloudinary.userName}
+					publicId={typeof item.COD != undefined ? `${item.COD}` : ""}
+					className="card-img"
+				/>
 			</div>
 			<Card.Body className="card-body">
-				<Card.Title className="name-section">{item.name}</Card.Title>
-				<Card.Subtitle className="price-section">${item.price}</Card.Subtitle>
+				<Card.Title className="name-section">{item.DESCRIPCION}</Card.Title>
+				<Card.Subtitle className="price-section">${item.PVP}</Card.Subtitle>
 				<Card.Text className="full-input">
 					<InputGroup className="mb-3 input-style">
 						<InputGroup.Prepend>

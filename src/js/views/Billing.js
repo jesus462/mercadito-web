@@ -16,7 +16,7 @@ export const Billing = () => {
 	const [edit, setEdit] = useState(false);
 
 	let cartItemMapped = store.cartItems.map(cartItem => {
-		return ` (cod: ${cartItem.code}) x ${cartItem.units}`;
+		return ` (cod: ${cartItem.COD}) x ${cartItem.units}`;
 	});
 
 	const handleClickStartEdit = e => {
@@ -38,16 +38,16 @@ export const Billing = () => {
 	let allSubTotalArray = [0];
 
 	let cartItems = store.cartItems.map(cartItem => {
-		cartItem.subTotal = cartItem.price * cartItem.units;
+		cartItem.subTotal = cartItem.PVP * cartItem.units;
 		allSubTotalArray.push(cartItem.subTotal);
 
 		return (
 			<tr key={cartItem.id}>
-				<td className="cell-data">{cartItem.code}</td>
+				<td className="cell-data">{cartItem.COD}</td>
 				<td className="cell-data">
-					<strong>{cartItem.units}</strong> x {cartItem.name.toLowerCase()}
+					<strong>{cartItem.units}</strong> x {cartItem.DESCRIPCION.toLowerCase()}
 				</td>
-				<td className="cell-data">${cartItem.price}</td>
+				<td className="cell-data">${cartItem.PVP}</td>
 				<td className="cell-data">${cartItem.subTotal.toFixed(2)}</td>
 			</tr>
 		);

@@ -26,11 +26,11 @@ export const SnacksItems = () => {
 
 	let filteredSnacksItems = store.items.filter(item => {
 		if (search.length < 1) {
-			if (typeof item.type === "string") {
-				return item.type.toLowerCase() == "snacks";
+			if (typeof item.CATEGORIA === "string") {
+				return item.CATEGORIA.toLowerCase() == "snacks";
 			}
 		} else {
-			return item.name.toLowerCase().includes(search.toLowerCase());
+			return item.DESCRIPCION.toLowerCase().includes(search.toLowerCase());
 		}
 	});
 
@@ -41,7 +41,7 @@ export const SnacksItems = () => {
 	return (
 		<div className="container-whole">
 			<div className="sticky-top">
-				<NavBar cartCounter={cartCounter} />
+				<NavBar />
 				<div className="search-bar">
 					<InputGroup className="mb-3 search-bar-style">
 						<FormControl
@@ -67,7 +67,17 @@ export const SnacksItems = () => {
 					<i className="fas fa-angle-left" /> Volver a Principal
 				</Link>
 			</p>
-			<div className="card-container">{itemCards}</div>
+			<div className="card-container">
+				{store.loadingItems ? (
+					<h4 className="loading">cargando...</h4>
+				) : itemCards.length < 1 && store.noItems ? (
+					<h4 className="no-items">Estamos actualizando inventario, regrese en 10 minutos.</h4>
+				) : itemCards.length < 1 ? (
+					<h4 className="no-items">No tenemos ese producto actualmente.</h4>
+				) : (
+					itemCards
+				)}
+			</div>
 		</div>
 	);
 };

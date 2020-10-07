@@ -24,7 +24,7 @@ export const EditableCartItems = ({ cartEditItem, setCartEdit, cartEdit }) => {
 
 	const handleClickDeleteItem = () => {
 		let filteredCartEdit = cartEdit.filter(filteredItem => {
-			return filteredItem.code !== cartEditItem.code;
+			return filteredItem.COD !== cartEditItem.COD;
 		});
 		setCartEdit(filteredCartEdit);
 	};
@@ -48,8 +48,8 @@ export const EditableCartItems = ({ cartEditItem, setCartEdit, cartEdit }) => {
 					</Button>
 				</InputGroup>
 			</td>
-			<td className="tdata">{cartEditItem.name.toLowerCase()}</td>
-			<td className="tdata">${(unit * cartEditItem.price).toFixed(2)}</td>
+			<td className="tdata">{cartEditItem.DESCRIPCION.toLowerCase()}</td>
+			<td className="tdata">${(unit * cartEditItem.PVP).toFixed(2)}</td>
 			<td className="cell-delete">
 				<Button className="delete" variant="danger" onClick={handleClickDeleteItem}>
 					x

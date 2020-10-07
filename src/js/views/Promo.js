@@ -9,7 +9,6 @@ import { ItemCard } from "../component/ItemCard";
 import { MobileNavbar } from "../component/MobileNavbar";
 
 import "../../styles/views/Promo.scss";
-import { type } from "jquery";
 
 export const Promo = () => {
 	const { store, actions } = useContext(Context);
@@ -27,11 +26,11 @@ export const Promo = () => {
 
 	let filteredInDemandItems = store.items.filter(item => {
 		if (search.length < 1) {
-			if (typeof item.type === "string") {
-				return item.type.toLowerCase() == "promocion";
+			if (typeof item.CATEGORIA === "string") {
+				return item.CATEGORIA.toLowerCase() == "promocion";
 			}
 		} else {
-			return item.name.toLowerCase().includes(search.toLowerCase());
+			return item.DESCRIPCION.toLowerCase().includes(search.toLowerCase());
 		}
 	});
 
@@ -42,7 +41,7 @@ export const Promo = () => {
 	return (
 		<div className="container-whole">
 			<div className="sticky-top">
-				<NavBar cartCounter={cartCounter} />
+				<NavBar />
 				<div className="search-bar">
 					<InputGroup className="mb-3 search-bar-style">
 						<FormControl
@@ -68,7 +67,17 @@ export const Promo = () => {
 					<i className="fas fa-angle-left" /> Volver a Principal
 				</Link>
 			</p>
-			<div className="card-container">{itemCards}</div>
+			<div className="card-container">
+				{store.loadingItems ? (
+					<h4 className="loading">cargando...</h4>
+				) : itemCards.length < 1 && store.noItems ? (
+					<h4 className="no-items">Estamos actualizando inventario, regrese en 10 minutos.</h4>
+				) : itemCards.length < 1 ? (
+					<h4 className="no-items">No tenemos ese producto actualmente.</h4>
+				) : (
+					itemCards
+				)}
+			</div>
 		</div>
 	);
 };

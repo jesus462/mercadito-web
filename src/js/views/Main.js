@@ -22,7 +22,9 @@ export const Main = () => {
 	};
 
 	let filteredItems = store.items.filter(item => {
-		return item.name.toLowerCase().includes(search.toLowerCase());
+		if (typeof item.DESCRIPCION === "string") {
+			return item.DESCRIPCION.toLowerCase().includes(search.toLowerCase());
+		}
 	});
 
 	let itemCards = filteredItems.map(item => {
@@ -34,10 +36,12 @@ export const Main = () => {
 		return false;
 	};
 
+	console.log(store.items.length);
+
 	return (
 		<div className="container-whole">
 			<div className="sticky-top">
-				<NavBar cartCounter={cartCounter} />
+				<NavBar />
 				<div className="search-bar">
 					<InputGroup className="mb-3 search-bar-style">
 						<FormControl
@@ -57,7 +61,17 @@ export const Main = () => {
 				</div>
 			</div>
 			<MobileNavbar />
-			<div className="card-container">{itemCards}</div>
+			<div className="card-container">
+				{store.loadingItems ? (
+					<h4 className="loading">cargando...</h4>
+				) : itemCards.length < 1 && store.noItems ? (
+					<h4 className="no-items">Estamos actualizando inventario, regrese en 10 minutos.</h4>
+				) : itemCards.length < 1 ? (
+					<h4 className="no-items">No tenemos ese producto actualmente.</h4>
+				) : (
+					itemCards
+				)}
+			</div>
 		</div>
 	);
 };
